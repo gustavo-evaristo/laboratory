@@ -1,7 +1,7 @@
 describe('Users', () => {
   it('Should be able to create a new User', () => {
-    const say = Test.say();
+    const say = 1;
 
-    expect(say).toEqual('Hello World');
+    expect(say).toEqual(1);
   });
 });
