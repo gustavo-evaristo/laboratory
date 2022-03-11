@@ -8,7 +8,7 @@ export class helps1647022413920 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'number',
+            type: 'integer',
             generationStrategy: 'increment',
             isPrimary: true,
             isUnique: true,
@@ -16,7 +16,7 @@ export class helps1647022413920 implements MigrationInterface {
           },
           {
             name: 'owner',
-            type: 'number',
+            type: 'integer',
             isNullable: false,
           },
           {
@@ -45,19 +45,15 @@ export class helps1647022413920 implements MigrationInterface {
             default: true,
           },
           {
-            name: 'active',
-            type: 'boolean',
-            default: true,
-          },
-          {
             name: 'status',
             type: 'varchar',
             isNullable: true,
           },
           {
             name: 'stars',
-            type: 'number',
+            type: 'decimal',
             isNullable: true,
+            default: 5.0,
           },
           {
             name: 'created_at',

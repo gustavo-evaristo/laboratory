@@ -8,7 +8,7 @@ export class comments1647022417725 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'number',
+            type: 'integer',
             generationStrategy: 'increment',
             isPrimary: true,
             isUnique: true,
@@ -16,12 +16,12 @@ export class comments1647022417725 implements MigrationInterface {
           },
           {
             name: 'help',
-            type: 'number',
+            type: 'integer',
             isNullable: false,
           },
           {
             name: 'owner',
-            type: 'number',
+            type: 'integer',
             isNullable: false,
           },
           {

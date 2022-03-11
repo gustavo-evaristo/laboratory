@@ -16,7 +16,7 @@ export default {
   preset: 'ts-jest',
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/*.test.ts'],
+  testMatch: ['**/__tests__/**/*.test.ts'],
 
   // Indicates whether each individual test should be reported during the run
   verbose: true,
