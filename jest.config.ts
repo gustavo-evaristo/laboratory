@@ -10,6 +10,7 @@ export default {
     '^@services(.*)$': '<rootDir>/src/services',
     '^@database(.*)$': '<rootDir>/src/database',
     '^@utils(.*)$': '<rootDir>/src/utils',
+    '^@models(.*)$': '<rootDir>/src/models',
   },
 
   // A preset that is used as a base for Jest's configuration
