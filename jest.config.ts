@@ -10,13 +10,14 @@ export default {
     '^@services(.*)$': '<rootDir>/src/services',
     '^@database(.*)$': '<rootDir>/src/database',
     '^@utils(.*)$': '<rootDir>/src/utils',
+    '^@models(.*)$': '<rootDir>/src/models',
   },
 
   // A preset that is used as a base for Jest's configuration
   preset: 'ts-jest',
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/*.test.ts'],
+  testMatch: ['**/__tests__/**/*.test.ts'],
 
   // Indicates whether each individual test should be reported during the run
   verbose: true,
