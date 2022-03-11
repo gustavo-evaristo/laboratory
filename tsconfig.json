@@ -17,6 +17,8 @@
       "removeComments": true,
       "paths": {
         "@services": ["./src/services/index"],
+        "@database": ["./src/database/index"],
+        "@utils": ["./src/utils/index"],
       },
     },
 
