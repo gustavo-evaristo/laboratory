@@ -3,7 +3,7 @@ import { Users } from '@entities';
 import { isEmpty } from '@utils';
 
 export default class UserRepository {
-  repository: Repository<Users>;
+  private repository: Repository<Users>;
 
   constructor() {
     this.repository = getRepository(Users);

@@ -19,6 +19,7 @@
         "@database": ["./src/database/index"],
         "@entities": ["src/entities/index"],
         "@utils": ["./src/utils/index"],
+        "@repositories": ["./src/repositories/index"],
       },
     },
 
