@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'dotenv/config';
 import 'express-async-errors';
 import 'reflect-metadata';
-import express, { Application, Request, Response } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import createConnection from '@database';
 import routes from '@routes';
@@ -31,7 +32,7 @@ class App {
   private routes(): void {
     this.express.use(routes);
 
-    this.express.use((err: Error, req: Request, res: Response) => {
+    this.express.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       if (err instanceof Error) {
         return res.status(406).json({
           error: err.message,
