@@ -17,7 +17,7 @@
       "paths": {
         "@services": ["./src/services/index"],
         "@database": ["./src/database/index"],
-        "@models": ["./src/models/index"],
+        "@models": ["src/entities/index"],
         "@utils": ["./src/utils/index"],
       },
     },
