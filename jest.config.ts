@@ -13,11 +13,14 @@ export default {
     '^@models(.*)$': '<rootDir>/src/models',
   },
 
+  // An array of regexp pattern strings used to skip coverage collection
+  coveragePathIgnorePatterns: ['/node_modules/', '/migrations/'],
+
   // A preset that is used as a base for Jest's configuration
   preset: 'ts-jest',
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.test.ts'],
+  testMatch: ['**/**/*.spec.ts'],
 
   // Indicates whether each individual test should be reported during the run
   verbose: true,
