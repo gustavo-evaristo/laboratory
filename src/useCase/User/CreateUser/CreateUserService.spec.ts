@@ -1,5 +1,5 @@
 import CreateUserService from './CreateUserService';
-import { getTestDbConnection, closeTestDbConnection } from '@database';
+import { dbConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 
@@ -9,17 +9,17 @@ describe('Create user Service', () => {
   let userName: string;
 
   beforeAll(async () => {
-    await getTestDbConnection();
+    await dbConnect();
 
     userRepository = new UserRepository();
     createUserService = new CreateUserService(userRepository);
   });
 
   afterAll(async () => {
-    await closeTestDbConnection();
+    await dbClose();
   });
 
-  it('should not be able to create a new user because passwords doesnt match', async () => {
+  it('should not be able to create a new user because passwords doesnt match', () => {
     const { name, email, avatar, password } = faker();
 
     expect(
@@ -39,7 +39,7 @@ describe('Create user Service', () => {
     userName = name;
   });
 
-  it('should not be able to create a new user because user already exists', async () => {
+  it('should not be able to create a new user because user already exists', () => {
     const { email, avatar, password } = faker();
 
     expect(

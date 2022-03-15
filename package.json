@@ -6,11 +6,12 @@
   "author": "Gustavo Evaristo",
   "scripts": {
     "start": "node build/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "NODE_ENV=DEV ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "hml": "NODE_ENV=HML ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --fix ",
     "pretty": "prettier --config ./.prettierrc.js --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
     "build": "rimraf build && babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
-    "test": "jest --coverage --detectOpenHandles",
+    "test": "NODE_ENV=TEST jest --coverage --detectOpenHandles",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "lint-staged": {
