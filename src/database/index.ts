@@ -1,7 +1,14 @@
-import { createConnection, Connection, getConnectionOptions } from 'typeorm';
+import { Connection, getConnection, createConnections } from 'typeorm';
+import { NODE_ENV } from '@utils';
 
-export default async (): Promise<Connection> => {
-  const defaultOptions = await getConnectionOptions();
+export const createConnection = async (): Promise<Connection> => {
+  await createConnections();
 
-  return createConnection(defaultOptions);
+  return getConnection(NODE_ENV);
+};
+
+export const createTestConnection = async (): Promise<Connection> => {
+  await createConnections();
+
+  return getConnection('TEST');
 };
