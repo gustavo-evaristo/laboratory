@@ -39,4 +39,9 @@ declare namespace UserType {
     email: string;
     password: string;
   };
+
+  type AuthResponse = {
+    token: string;
+    user: UserType.Values;
+  };
 }

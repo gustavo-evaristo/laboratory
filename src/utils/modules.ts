@@ -1,3 +1,5 @@
 import request from 'supertest';
+import jwt from 'jsonwebtoken';
+import { isEmpty } from 'lodash';
 
-export { request };
+export { request, jwt, isEmpty };

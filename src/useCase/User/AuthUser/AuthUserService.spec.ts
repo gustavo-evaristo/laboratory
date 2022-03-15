@@ -36,7 +36,10 @@ describe('Create user Service', () => {
 
     const authUser = await authUserService.execute({ email, password });
 
-    expect(authUser).toHaveProperty('id');
-    expect(authUser.email).toBe(email);
+    console.log(authUser);
+
+    expect(authUser).toHaveProperty('user');
+    expect(authUser).toHaveProperty('token');
+    expect(authUser.user.email).toBe(email);
   });
 });

@@ -1,5 +1,5 @@
 import { compareSync, hashSync } from 'bcryptjs';
-import { isEmpty } from '@utils';
+import { isEmpty, jwt } from '@utils';
 
 export const isValidPassword = (password: string, confirm_password: string): boolean => {
   if (isEmpty(password) || isEmpty(confirm_password)) return false;
@@ -25,4 +25,10 @@ export const encryptPassword = (password: string): string => {
 
 export const decryptPassword = (password: string, passwordCompare: string): boolean => {
   return compareSync(password, passwordCompare);
+};
+
+export const generateToken = (id: number): string => {
+  return jwt.sign({ id }, process.env.SECRET, {
+    expiresIn: '30d',
+  });
 };
