@@ -4,7 +4,7 @@ import { dbConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 
-describe('Create user Service', () => {
+describe('Auth user Service', () => {
   let userRepository: UserRepository;
   let authUserService: AuthUserService;
   let createUserService: CreateUserService;

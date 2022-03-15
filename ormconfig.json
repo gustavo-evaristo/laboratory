@@ -4,7 +4,7 @@
   "port": "5432",
   "username": "postgres",
   "password": "postgres",
-  "database": "koob-help",
+  "database": "koob-help-dev",
   "synchronize": true,
   "entities": [
     "./src/entities/**.ts"

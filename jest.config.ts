@@ -18,7 +18,7 @@ export default {
   },
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/', '/migrations/', '/database/', '/utils/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/migrations/', '/database/', '/entities/', '/utils/'],
 
   // A preset that is used as a base for Jest's configuration
   preset: 'ts-jest',
