@@ -10,7 +10,7 @@ export default {
     '^@services(.*)$': '<rootDir>/src/services',
     '^@database(.*)$': '<rootDir>/src/database',
     '^@utils(.*)$': '<rootDir>/src/utils',
-    '^@models(.*)$': '<rootDir>/src/models',
+    '^@entities(.*)$': '<rootDir>/src/models',
   },
 
   // An array of regexp pattern strings used to skip coverage collection

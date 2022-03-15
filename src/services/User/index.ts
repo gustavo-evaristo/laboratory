@@ -1,4 +1,4 @@
-import { Users } from '@models';
+import { Users } from '@entities';
 import { getRepository } from 'typeorm';
 import { isEmpty, isValidPassword } from '@utils';
 

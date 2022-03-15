@@ -16,7 +16,7 @@ module.exports = {
           "@services": ["./src/services"],
           "@database": ["./src/database"],
           "@utils": ["./src/utils"],
-          "@models": ["./src/models"],
+          "@entities": ["./src/models"],
         }
       }]
     ],

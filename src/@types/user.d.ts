@@ -21,4 +21,9 @@ declare namespace UserType {
     id?: number;
     email?: string;
   };
+
+  type Update = {
+    id: number;
+    values: UserType.Values;
+  };
 }
