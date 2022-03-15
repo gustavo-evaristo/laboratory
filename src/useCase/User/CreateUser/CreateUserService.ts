@@ -1,5 +1,5 @@
 import { UserRepository } from '@repositories';
-import { isValidPassword } from '@utils';
+import { encryptPassword, isValidPassword } from '@utils';
 import { Users } from '@entities';
 
 export default class CreateUserService {
@@ -10,7 +10,7 @@ export default class CreateUserService {
 
     if (await this.userRepository.findOne({ email })) throw new Error('User already exists');
 
-    const user = await this.userRepository.create({ name, email, avatar, password });
+    const user = await this.userRepository.create({ name, email, avatar, password: encryptPassword(password) });
 
     return user;
   }

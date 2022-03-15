@@ -34,4 +34,9 @@ declare namespace UserType {
     id: number;
     values: UserType.Values;
   };
+
+  type Auth = {
+    email: string;
+    password: string;
+  };
 }

@@ -1,3 +1,4 @@
+import { compareSync, hashSync } from 'bcryptjs';
 import { isEmpty } from '@utils';
 
 export const isValidPassword = (password: string, confirm_password: string): boolean => {
@@ -16,4 +17,12 @@ export const isValidPassword = (password: string, confirm_password: string): boo
   if (!password.match('([!@#$&*])')) return false;
 
   return true;
+};
+
+export const encryptPassword = (password: string): string => {
+  return hashSync(password, 8);
+};
+
+export const decryptPassword = (password: string, passwordCompare: string): boolean => {
+  return compareSync(password, passwordCompare);
 };
