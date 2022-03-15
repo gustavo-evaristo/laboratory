@@ -4,7 +4,6 @@ type FakerData = {
   name: string;
   email: string;
   password: string;
-  confirm_password: string;
   avatar: string;
 };
 
@@ -18,7 +17,6 @@ export const faker = (): FakerData => {
     name,
     email,
     password,
-    confirm_password: password,
     avatar,
   };
 };
