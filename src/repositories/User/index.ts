@@ -21,12 +21,13 @@ export default class UserRepository {
     return null;
   }
 
-  async create({ name, email, password }: UserType.Create): Promise<UserType.Values> {
+  async create({ name, email, avatar, password }: UserType.Create): Promise<UserType.Values> {
     const User = getRepository(Users);
 
     const user = User.create({
       name,
       email,
+      avatar,
       password,
     });
 
