@@ -6,6 +6,7 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import { dbConnect } from '@database';
 import routes from '@routes';
+import { NODE_ENV } from '@utils';
 
 class App {
   public express: Application;
@@ -26,7 +27,7 @@ class App {
   }
 
   private database(): void {
-    dbConnect();
+    NODE_ENV !== 'TEST' && dbConnect();
   }
 
   private routes(): void {

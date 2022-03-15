@@ -1,6 +1,7 @@
 import app from '@app';
 import { dbConnect, dbClose } from '@database';
-import { faker, request } from '@utils';
+import { faker } from '@utils';
+import request from 'supertest';
 
 describe('Create user Service', () => {
   beforeAll(async () => {
@@ -19,6 +20,7 @@ describe('Create user Service', () => {
       email,
       avatar,
       password,
+      confirm_password: password,
     });
 
     expect(status).toBe(200);

@@ -17,9 +17,5 @@ export const dbConnect = async (): Promise<Connection> => {
 };
 
 export const dbClose = async (): Promise<void> => {
-  const connection = getConnection();
-
-  console.log('close database', connection.options.database);
-
-  await connection.close();
+  return await getConnection().close();
 };
