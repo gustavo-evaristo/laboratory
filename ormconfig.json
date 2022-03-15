@@ -1,36 +1,44 @@
 [
-    {
-      "name": "DEV",
-      "type": "postgres",
-      "host": "localhost",
-      "port": "5432",
-      "username": "postgres",
-      "password": "postgres",
-      "database": "koob-help",
-      "synchronize": true,
-      "logging": false,
-      "entities": ["./src/models/**.ts"],
-      "migrations": ["./src/database/migrations/**.ts"],
-      "cli": {
-        "entitiesDir": "./src/models/",
-        "migrationsDir": "./src/database/migrations/"
-      }
-    },
-    {
-      "name": "PRD",
-      "type": "postgres",
-      "host": "localhost",
-      "port": "5432",
-      "username": "postgres",
-      "password": "postgres",
-      "database": "koob-help",
-      "synchronize": true,
-      "logging": false,
-      "entities": ["./src/models/**.js"],
-      "migrations": ["./src/database/migrations/**.js"],
-      "cli": {
-        "entitiesDir": "./src/models/",
-        "migrationsDir": "./src/database/migrations/"
-      }
+  {
+    "name": "DEV",
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "koob-help",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "./src/models/**.ts"
+    ],
+    "migrations": [
+      "./src/database/migrations/**.ts"
+    ],
+    "cli": {
+      "entitiesDir": "./src/models/",
+      "migrationsDir": "./src/database/migrations/"
     }
-  ]
+  },
+  {
+    "name": "PRD",
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "koob-help",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "./src/models/**.js"
+    ],
+    "migrations": [
+      "./src/database/migrations/**.js"
+    ],
+    "cli": {
+      "entitiesDir": "./src/models/",
+      "migrationsDir": "./src/database/migrations/"
+    }
+  }
+]

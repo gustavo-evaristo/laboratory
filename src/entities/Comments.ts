@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Users, Helps } from './';
 
 @Entity('comments')
 export class Comments {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @JoinColumn({ name: 'owner' })

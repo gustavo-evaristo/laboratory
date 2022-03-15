@@ -9,10 +9,10 @@ export class comments1647022417725 implements MigrationInterface {
           {
             name: 'id',
             type: 'integer',
-            generationStrategy: 'increment',
             isPrimary: true,
             isUnique: true,
-            isNullable: false,
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: 'help',

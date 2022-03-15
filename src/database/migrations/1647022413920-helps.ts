@@ -9,10 +9,10 @@ export class helps1647022413920 implements MigrationInterface {
           {
             name: 'id',
             type: 'integer',
-            generationStrategy: 'increment',
             isPrimary: true,
             isUnique: true,
-            isNullable: false,
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: 'owner',

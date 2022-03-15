@@ -14,16 +14,9 @@ class Database {
     return getConnection(connection);
   }
 
-  public async connection(): Promise<boolean> {
-    try {
-      await this.createConnections();
-      this.getConnection(NODE_ENV || 'DEV');
-      console.log('database connect in', NODE_ENV);
-      return true;
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
+  private async connection(): Promise<void> {
+    await this.createConnections();
+    this.getConnection(NODE_ENV);
   }
 }
 
