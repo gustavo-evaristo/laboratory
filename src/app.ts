@@ -2,6 +2,7 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import '@database';
 import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
 import routes from './routes';
 
 class App {
@@ -11,6 +12,12 @@ class App {
     this.express = express();
 
     this.routes();
+
+    this.middlewares();
+  }
+
+  private middlewares(): void {
+    this.express.use(cors());
   }
 
   private routes(): void {
