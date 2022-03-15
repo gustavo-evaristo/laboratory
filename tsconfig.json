@@ -22,6 +22,7 @@
         "@repositories": ["./src/repositories/index"],
         "@useCase": ["./src/useCase/index"],
         "@routes": ["./src/routes/index"],
+        "@app": ["./src/app.ts"],
       },
     },
 

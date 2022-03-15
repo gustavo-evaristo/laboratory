@@ -20,6 +20,7 @@ module.exports = {
           "@repositories": ["./src/repositories"],
           "@useCase": ["./src/useCase"],
           "@routes": ["./src/routes"],
+          "@app": ["./src/app.ts"],
         }
       }]
     ],

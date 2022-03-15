@@ -6,7 +6,7 @@ import { UserRepository } from '@repositories';
 describe('Create user Service', () => {
   let userRepository: UserRepository;
   let createUserService: CreateUserService;
-  let userName;
+  let userName: string;
 
   beforeAll(async () => {
     await getTestDbConnection();

@@ -4,7 +4,7 @@ import 'express-async-errors';
 import 'reflect-metadata';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { createConnection } from '@database';
+import { getDbConnection } from '@database';
 import routes from '@routes';
 
 class App {
@@ -26,7 +26,7 @@ class App {
   }
 
   private database(): void {
-    createConnection();
+    getDbConnection();
   }
 
   private routes(): void {
