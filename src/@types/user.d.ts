@@ -14,6 +14,7 @@ declare namespace UserType {
     name: string;
     email: string;
     password: string;
+    avatar: string;
   };
 
   type CreateRequest = {
@@ -21,6 +22,7 @@ declare namespace UserType {
     email: string;
     password: string;
     confirm_password: string;
+    avatar: string;
   };
 
   type Find = {

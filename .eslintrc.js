@@ -58,6 +58,5 @@ module.exports = {
     camelcase: 'off',
     'no-undef': 'off',
     'no-use-before-define': 'error',
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
 };

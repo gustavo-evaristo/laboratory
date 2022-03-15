@@ -38,6 +38,7 @@ export class users1647022410447 implements MigrationInterface {
           {
             name: 'active',
             type: 'boolean',
+            isNullable: false,
             default: true,
           },
           {

@@ -12,6 +12,8 @@ export default {
     '^@utils(.*)$': '<rootDir>/src/utils',
     '^@entities(.*)$': '<rootDir>/src/entities',
     '^@repositories(.*)$': '<rootDir>/src/repositories',
+    '^@useCase(.*)$': '<rootDir>/src/useCase',
+    '^@routes(.*)$': '<rootDir>/src/routes',
   },
 
   // An array of regexp pattern strings used to skip coverage collection

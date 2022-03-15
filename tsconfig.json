@@ -20,6 +20,8 @@
         "@entities": ["src/entities/index"],
         "@utils": ["./src/utils/index"],
         "@repositories": ["./src/repositories/index"],
+        "@useCase": ["./src/useCase/index"],
+        "@routes": ["./src/routes/index"],
       },
     },
 

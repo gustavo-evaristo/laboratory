@@ -1,17 +1,14 @@
 import { UserRepository } from '@repositories';
 import { isValidPassword } from '@utils';
+import { Users } from '@entities';
 
 export default class CreateUserService {
-  private userRepository: UserRepository;
+  constructor(private userRepository: UserRepository) {}
 
-  constructor() {
-    this.userRepository = new UserRepository();
-  }
+  async execute({ name, email, avatar, password, confirm_password }: UserType.CreateRequest): Promise<Users> {
+    if (!isValidPassword(password, confirm_password)) throw new Error('Invalid Password');
 
-  async execute({ name, email, password, confirm_password }: UserType.CreateRequest): Promise<UserType.Values> {
-    if (!isValidPassword(password, confirm_password)) throw new Error('');
-
-    const user = await this.userRepository.create({ name, email, password });
+    const user = await this.userRepository.create({ name, email, avatar, password });
 
     return user;
   }

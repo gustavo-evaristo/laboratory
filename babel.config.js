@@ -18,6 +18,8 @@ module.exports = {
           "@utils": ["./src/utils"],
           "@entities": ["./src/entities"],
           "@repositories": ["./src/repositories"],
+          "@useCase": ["./src/useCase"],
+          "@routes": ["./src/routes"],
         }
       }]
     ],
