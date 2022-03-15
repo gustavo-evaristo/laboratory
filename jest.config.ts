@@ -26,6 +26,8 @@ export default {
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/**/*.spec.ts'],
 
+  setupFiles: ['./setJestEnvVars.js'],
+
   // Indicates whether each individual test should be reported during the run
   verbose: true,
 };
