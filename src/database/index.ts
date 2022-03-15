@@ -1,23 +1,7 @@
-import { Connection, createConnections, getConnection } from 'typeorm';
-import { NODE_ENV } from '@utils';
+import { createConnection, Connection, getConnectionOptions } from 'typeorm';
 
-class Database {
-  constructor() {
-    this.connection();
-  }
+export default async (): Promise<Connection> => {
+  const defaultOptions = await getConnectionOptions();
 
-  private async createConnections(): Promise<Connection[]> {
-    return await createConnections();
-  }
-
-  private async getConnection(connection: string): Promise<Connection> {
-    return getConnection(connection);
-  }
-
-  private async connection(): Promise<void> {
-    await this.createConnections();
-    this.getConnection(NODE_ENV);
-  }
-}
-
-export default new Database();
+  return createConnection(defaultOptions);
+};

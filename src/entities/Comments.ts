@@ -4,30 +4,30 @@ import { Users, Helps } from './';
 @Entity('comments')
 export class Comments {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @JoinColumn({ name: 'owner' })
   @ManyToOne(() => Users)
-  _owner: Users;
+  _owner!: Users;
 
   @Column()
-  owner: number;
+  owner!: number;
 
   @JoinColumn({ name: 'help' })
   @ManyToOne(() => Helps)
-  _help: Helps;
+  _help!: Helps;
 
   @Column()
-  help: number;
+  help!: number;
 
   @Column()
-  description: string;
+  description!: string;
 
   @Column()
-  file: string;
+  file!: string;
 
   @Column()
-  status: string;
+  status!: string;
 
   @CreateDateColumn()
   created_at: Date;

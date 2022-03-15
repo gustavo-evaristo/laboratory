@@ -4,35 +4,35 @@ import { Users } from './Users';
 @Entity('helps')
 export class Helps {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @JoinColumn({ name: 'owner' })
   @ManyToOne(() => Users)
-  _owner: Users;
+  _owner!: Users;
 
   @Column()
-  owner: number;
+  owner!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  description: string;
+  description!: string;
 
   @Column()
-  category: string;
+  category!: string;
 
   @Column()
-  file: string;
+  file!: string;
 
   @Column()
-  status: string;
+  status!: string;
 
   @Column()
-  public: boolean;
+  public!: boolean;
 
   @Column()
-  stars: number;
+  stars!: number;
 
   @CreateDateColumn()
   created_at: Date;

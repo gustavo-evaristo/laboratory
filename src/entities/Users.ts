@@ -3,26 +3,32 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeor
 @Entity('users')
 export class Users {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column()
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
 
   @Column()
-  avatar: string;
+  avatar!: string;
 
   @Column()
-  active: boolean;
+  active!: boolean;
 
   @CreateDateColumn()
   created_at: Date;
 
   @CreateDateColumn()
   updated_at: Date;
+
+  constructor() {
+    if (!this.avatar) this.avatar = 'https://koob-bucket-prd.nyc3.digitaloceanspaces.com/avatar-default.png';
+
+    this.active = true;
+  }
 }
