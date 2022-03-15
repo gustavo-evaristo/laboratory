@@ -12,6 +12,23 @@ describe('Create user Service', () => {
     await dbClose();
   });
 
+  it('Should not be able to create a new User because password doesnt match', async () => {
+    const { name, email, avatar, password } = faker();
+
+    const response = await request(app).post('/user/create').send({
+      name,
+      email,
+      avatar,
+      password,
+      confirm_password: '123',
+    });
+
+    expect(response).toHaveProperty('status');
+    expect(response.status).toBe(406);
+    expect(response).toHaveProperty('body');
+    expect(response.body.error).toBe('Invalid Password');
+  });
+
   it('Should be able to create a new User', async () => {
     const { name, email, avatar, password } = faker();
 
