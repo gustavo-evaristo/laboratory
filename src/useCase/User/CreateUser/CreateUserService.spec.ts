@@ -6,7 +6,7 @@ import { UserRepository } from '@repositories';
 describe('Create user Service', () => {
   let userRepository: UserRepository;
   let createUserService: CreateUserService;
-  let userName: string;
+  let emailExists: string;
 
   beforeAll(async () => {
     await dbConnect();
@@ -36,15 +36,15 @@ describe('Create user Service', () => {
     expect(user).toHaveProperty('id');
     expect(user).toHaveProperty('created_at');
 
-    userName = name;
+    emailExists = email;
   });
 
   it('should not be able to create a new user because user already exists', () => {
-    const { email, avatar, password } = faker();
+    const { name, avatar, password } = faker();
 
     expect(
       async () =>
-        await createUserService.execute({ name: userName, email, avatar, password, confirm_password: password }),
-    ).rejects.toThrow(new Error('User Already Exists'));
+        await createUserService.execute({ name, email: emailExists, avatar, password, confirm_password: password }),
+    ).rejects.toThrow(new Error('User already exists'));
   });
 });

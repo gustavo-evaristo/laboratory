@@ -3,7 +3,9 @@ import { dbConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import request from 'supertest';
 
-describe('Create user Service', () => {
+describe('Create user Controller', () => {
+  let emailExists: string;
+
   beforeAll(async () => {
     await dbConnect();
   });
@@ -43,5 +45,24 @@ describe('Create user Service', () => {
     expect(status).toBe(200);
     expect(body).toHaveProperty('id');
     expect(body).toHaveProperty('created_at');
+
+    emailExists = email;
+  });
+
+  it('Should not be able to create a new User because user already exists', async () => {
+    const { name, avatar, password } = faker();
+
+    const response = await request(app).post('/user/create').send({
+      name,
+      email: emailExists,
+      avatar,
+      password,
+      confirm_password: password,
+    });
+
+    expect(response).toHaveProperty('status');
+    expect(response.status).toBe(406);
+    expect(response).toHaveProperty('body');
+    expect(response.body.error).toBe('User already exists');
   });
 });
