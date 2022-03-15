@@ -38,26 +38,5 @@
       "entitiesDir": "./src/entities/",
       "migrationsDir": "./src/database/migrations/"
     }
-  },
-  {
-    "name": "TEST",
-    "type": "postgres",
-    "host": "localhost",
-    "port": "5432",
-    "username": "postgres",
-    "password": "postgres",
-    "database": "koob-help-test",
-    "synchronize": true,
-    "dropSchema": true,
-    "entities": [
-      "./src/entities/**.ts"
-    ],
-    "migrations": [
-      "./src/database/migrations/**.ts"
-    ],
-    "cli": {
-      "entitiesDir": "./src/entities/",
-      "migrationsDir": "./src/database/migrations/"
-    }
   }
 ]
