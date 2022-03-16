@@ -1,5 +1,9 @@
 import { compareSync, hashSync } from 'bcryptjs';
-import { isEmpty, jwt } from '@utils';
+import { isEmpty, jwt, SECRET } from '@utils';
+
+type JWTDecoded = {
+  id: string;
+};
 
 export const isValidPassword = (password: string, confirm_password: string): boolean => {
   if (isEmpty(password) || isEmpty(confirm_password)) return false;
@@ -30,5 +34,13 @@ export const decryptPassword = (password: string, passwordCompare: string): bool
 export const generateToken = (id: number): string => {
   return jwt.sign({ id }, process.env.SECRET, {
     expiresIn: '30d',
+  });
+};
+
+export const verifyToken = (token: string): false | void => {
+  jwt.verify(token, SECRET, (err, decoded: JWTDecoded) => {
+    if (err) return false;
+
+    return decoded.id;
   });
 };
