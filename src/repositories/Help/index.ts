@@ -14,20 +14,31 @@ export default class HelpRepository {
     return await Help.findOne({ id });
   }
 
-  // async create({ name, email, avatar, password }: UserType.Create): Promise<UserType.Values> {
-  //   const User = getRepository(Users);
+  async create({
+    title,
+    description,
+    category,
+    file,
+    owner,
+    is_private,
+    status,
+  }: HelpType.Create): Promise<HelpType.Values> {
+    const Help = getRepository(Helps);
 
-  //   const user = User.create({
-  //     name,
-  //     email,
-  //     avatar,
-  //     password,
-  //   });
+    const help = Help.create({
+      title,
+      description,
+      category,
+      file,
+      owner,
+      is_private,
+      status,
+    });
 
-  //   await User.save(user);
+    await Help.save(help);
 
-  //   return user;
-  // }
+    return help;
+  }
 
   // async update({ id, values }: UserType.Update): Promise<boolean> {
   //   const User = getRepository(Users);

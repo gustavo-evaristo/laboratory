@@ -23,13 +23,13 @@ export class Helps {
   category!: string;
 
   @Column()
-  file!: string;
+  file: string;
 
   @Column()
   status!: string;
 
   @Column()
-  public!: boolean;
+  is_private!: boolean;
 
   @Column()
   stars!: number;
@@ -39,4 +39,9 @@ export class Helps {
 
   @CreateDateColumn()
   updated_at: Date;
+
+  constructor() {
+    if (!this.stars) this.stars = 5.0;
+    if (!this.status) this.status = 'OPEN';
+  }
 }

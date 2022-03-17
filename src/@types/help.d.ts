@@ -8,10 +8,20 @@ declare namespace HelpType {
     category: string;
     file: string;
     status: string;
-    public: boolean;
+    is_private: boolean;
     stars: number;
     created_at: Date;
     updated_at: Date;
+  };
+
+  type Create = {
+    owner: number;
+    title: string;
+    description: string;
+    category: string;
+    file?: string;
+    status?: string;
+    is_private: boolean;
   };
 
   type GetRequest = {

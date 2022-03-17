@@ -5,6 +5,8 @@ type FakerData = {
   email: string;
   password: string;
   avatar: string;
+  description: string;
+  title: string;
 };
 
 export const faker = (): FakerData => {
@@ -12,11 +14,15 @@ export const faker = (): FakerData => {
   const email = Faker.internet.email();
   const password = Faker.internet.password(10, true, /[a-z]/, '@123Z');
   const avatar = Faker.internet.avatar();
+  const description = Faker.lorem.paragraphs();
+  const title = Faker.lorem.text();
 
   return {
     name,
     email,
     password,
     avatar,
+    description,
+    title,
   };
 };

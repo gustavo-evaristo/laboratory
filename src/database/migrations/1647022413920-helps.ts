@@ -40,9 +40,10 @@ export class helps1647022413920 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'public',
+            name: 'is_private',
             type: 'boolean',
-            default: true,
+            isNullable: false,
+            default: false,
           },
           {
             name: 'status',
@@ -53,7 +54,6 @@ export class helps1647022413920 implements MigrationInterface {
             name: 'stars',
             type: 'decimal',
             isNullable: true,
-            default: 5.0,
           },
           {
             name: 'created_at',
