@@ -13,4 +13,8 @@ declare namespace HelpType {
     created_at: Date;
     updated_at: Date;
   };
+
+  type GetRequest = {
+    id: number;
+  };
 }
