@@ -25,7 +25,7 @@ describe('Create Help Service', () => {
   });
 
   it('should be able to create a new help', async () => {
-    const { name, email, avatar, password, title, description } = faker();
+    const { name, email, avatar, password, title, description, category } = faker();
 
     const { id: owner } = await createUserService.execute({
       name,
@@ -38,7 +38,7 @@ describe('Create Help Service', () => {
     const help = await createHelpService.execute({
       title,
       description,
-      category: 'TEST',
+      category,
       owner,
       file: avatar,
       is_private: false,

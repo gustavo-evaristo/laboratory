@@ -7,6 +7,7 @@ type FakerData = {
   avatar: string;
   description: string;
   title: string;
+  category: string;
 };
 
 export const faker = (): FakerData => {
@@ -16,6 +17,7 @@ export const faker = (): FakerData => {
   const avatar = Faker.internet.avatar();
   const description = Faker.lorem.paragraphs();
   const title = Faker.lorem.text();
+  const category = Faker.lorem.word();
 
   return {
     name,
@@ -24,5 +26,6 @@ export const faker = (): FakerData => {
     avatar,
     description,
     title,
+    category,
   };
 };
