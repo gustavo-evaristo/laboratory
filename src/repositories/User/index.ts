@@ -7,15 +7,11 @@ export default class UserRepository {
     const User = getRepository(Users);
 
     if (!isEmpty(id)) {
-      const user = await User.findOne({ id, active: true });
-
-      return user;
+      return await User.findOne({ id, active: true });
     }
 
     if (!isEmpty(email)) {
-      const user = await User.findOne({ email, active: true });
-
-      return user;
+      return await User.findOne({ email, active: true });
     }
 
     return null;
@@ -36,19 +32,19 @@ export default class UserRepository {
     return user;
   }
 
-  async update({ id, values }: UserType.Update): Promise<boolean> {
-    const User = getRepository(Users);
+  // async update({ id, values }: UserType.Update): Promise<boolean> {
+  //   const User = getRepository(Users);
 
-    await User.update(id, values);
+  //   await User.update(id, values);
 
-    return true;
-  }
+  //   return true;
+  // }
 
-  async delete(id: number): Promise<boolean> {
-    const User = getRepository(Users);
+  // async delete(id: number): Promise<boolean> {
+  //   const User = getRepository(Users);
 
-    await User.delete(id);
+  //   await User.delete(id);
 
-    return true;
-  }
+  //   return true;
+  // }
 }

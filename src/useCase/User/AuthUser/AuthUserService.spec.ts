@@ -21,10 +21,20 @@ describe('Auth user Service', () => {
     await dbClose();
   });
 
-  it('should not be able to login because email or password is invalid', () => {
+  it('should not be able to login because email is invalid', () => {
     const { email, password } = faker();
 
     expect(async () => await authUserService.execute({ email, password })).rejects.toThrow(
+      new Error('Invalid email or password'),
+    );
+  });
+
+  it('should not be able to login because password is invalid', async () => {
+    const { name, email, avatar, password } = faker();
+
+    await createUserService.execute({ name, email, avatar, password, confirm_password: password });
+
+    expect(async () => await authUserService.execute({ email, password: '123' })).rejects.toThrow(
       new Error('Invalid email or password'),
     );
   });
