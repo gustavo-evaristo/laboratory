@@ -26,9 +26,11 @@ class App {
     this.express.use(cors());
   }
 
-  private database(): Database {
-    const database = new Database(NODE_ENV);
-    return database;
+  private database(): Promise<void> {
+    if (NODE_ENV !== 'TEST') {
+      const database = new Database(NODE_ENV);
+      return database.connect();
+    }
   }
 
   private routes(): void {

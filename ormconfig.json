@@ -6,8 +6,9 @@
     "port": "5432",
     "username": "postgres",
     "password": "postgres",
-    "database": "koob-help-dev",
+    "database": "koob-help-test",
     "synchronize": true,
+    "dropSchema": true,
     "entities": [
       "./src/entities/**.ts"
     ],

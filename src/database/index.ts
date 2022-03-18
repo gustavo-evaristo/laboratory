@@ -1,15 +1,15 @@
 import { Connection, createConnections, getConnection } from 'typeorm';
 
 export default class Database {
+  private connectionName: string;
+
   constructor(connectionName: string) {
-    this.init(connectionName);
+    this.connectionName = connectionName;
   }
 
-  private async init(connectionName: string): Promise<void> {
+  public async connect(): Promise<void> {
     await this.createConnections();
-    this.getConnection(connectionName);
-
-    console.log('Database ON');
+    this.getConnection(this.connectionName);
   }
 
   private async createConnections(): Promise<Connection[]> {
@@ -18,5 +18,9 @@ export default class Database {
 
   private getConnection(name: string): Connection {
     return getConnection(name);
+  }
+
+  public async close(): Promise<void> {
+    return getConnection(this.connectionName).close();
   }
 }
