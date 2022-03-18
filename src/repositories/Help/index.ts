@@ -1,15 +1,16 @@
-import { getRepository } from 'typeorm';
+import { getConnection } from 'typeorm';
 import { Helps } from '@entities';
+import { NODE_ENV } from '@utils';
 
 export default class HelpRepository {
   async findAll(): Promise<HelpType.Values[]> {
-    const Help = getRepository(Helps);
+    const Help = getConnection(NODE_ENV).getRepository(Helps);
 
     return await Help.find();
   }
 
   async findOne(id: number): Promise<HelpType.Values> {
-    const Help = getRepository(Helps);
+    const Help = getConnection(NODE_ENV).getRepository(Helps);
 
     return await Help.findOne({ id });
   }
@@ -23,7 +24,7 @@ export default class HelpRepository {
     is_private,
     status,
   }: HelpType.Create): Promise<HelpType.Values> {
-    const Help = getRepository(Helps);
+    const Help = getConnection(NODE_ENV).getRepository(Helps);
 
     const help = Help.create({
       title,
@@ -41,7 +42,7 @@ export default class HelpRepository {
   }
 
   // async update({ id, values }: UserType.Update): Promise<boolean> {
-  //   const User = getRepository(Users);
+  //   const User = getConnection(NODE_ENV).getRepository(Users);
 
   //   await User.update(id, values);
 
@@ -49,7 +50,7 @@ export default class HelpRepository {
   // }
 
   // async delete(id: number): Promise<boolean> {
-  //   const User = getRepository(Users);
+  //   const User = getConnection(NODE_ENV).getRepository(Users);
 
   //   await User.delete(id);
 

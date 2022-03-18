@@ -1,48 +1,22 @@
-import { NODE_ENV } from '@utils';
-import { Connection, createConnections, createConnection, getConnection } from 'typeorm';
+import { Connection, createConnections, getConnection } from 'typeorm';
 
-export const dbConnect = async (): Promise<Connection> => {
-  await createConnections();
+export default class Database {
+  constructor(connectionName: string) {
+    this.init(connectionName);
+  }
 
-  const connection = getConnection(NODE_ENV);
+  private async init(connectionName: string): Promise<void> {
+    await this.createConnections();
+    this.getConnection(connectionName);
 
-  const {
-    options: { database },
-  } = connection;
+    console.log('Database ON');
+  }
 
-  console.log('database connected in', NODE_ENV, database);
+  private async createConnections(): Promise<Connection[]> {
+    return await createConnections();
+  }
 
-  return connection;
-};
-
-export const dbTestConnect = async (): Promise<Connection> => {
-  await createConnection({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'postgres',
-    database: 'koob-help-test',
-    synchronize: true,
-    entities: ['./src/entities/**.ts'],
-    migrations: ['./src/database/migrations/**.ts'],
-    cli: {
-      entitiesDir: './src/entities/',
-      migrationsDir: './src/database/migrations/',
-    },
-  });
-
-  const connection = getConnection();
-
-  const {
-    options: { database },
-  } = connection;
-
-  console.log('database connected in', NODE_ENV, database);
-
-  return connection;
-};
-
-export const dbClose = async (): Promise<void> => {
-  return await getConnection().close();
-};
+  private getConnection(name: string): Connection {
+    return getConnection(name);
+  }
+}

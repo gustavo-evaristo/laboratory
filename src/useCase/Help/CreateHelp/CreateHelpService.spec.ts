@@ -1,6 +1,5 @@
 import CreateHelpService from './CreateHelpService';
 import CreateUserService from '../../User/CreateUser/CreateUserService';
-import { dbClose } from '@database';
 import { HelpRepository, UserRepository } from '@repositories';
 import { faker } from '@utils';
 

@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import AuthUserService from './AuthUserService';
 import CreateUserService from '../CreateUser/CreateUserService';
-import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 

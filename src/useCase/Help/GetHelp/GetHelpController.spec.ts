@@ -1,5 +1,4 @@
 // import app from '@app';
-// import { dbTestConnect, dbClose } from '@database';
 // import request from 'supertest';
 
 // describe('Get Help Controller', () => {

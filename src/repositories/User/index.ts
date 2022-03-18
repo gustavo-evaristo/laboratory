@@ -1,10 +1,10 @@
-import { getRepository } from 'typeorm';
+import { getConnection } from 'typeorm';
 import { Users } from '@entities';
-import { isEmpty } from '@utils';
+import { isEmpty, NODE_ENV } from '@utils';
 
 export default class UserRepository {
   async findOne({ id, email }: UserType.Find): Promise<Users | null> {
-    const User = getRepository(Users);
+    const User = getConnection(NODE_ENV).getRepository(Users);
 
     if (!isEmpty(id)) {
       return await User.findOne({ id, active: true });
@@ -18,7 +18,7 @@ export default class UserRepository {
   }
 
   async create({ name, email, avatar, password }: UserType.Create): Promise<UserType.Values> {
-    const User = getRepository(Users);
+    const User = getConnection(NODE_ENV).getRepository(Users);
 
     const user = User.create({
       name,
@@ -33,7 +33,7 @@ export default class UserRepository {
   }
 
   // async update({ id, values }: UserType.Update): Promise<boolean> {
-  //   const User = getRepository(Users);
+  //   const User = getConnection(NODE_ENV).getRepository(Users);
 
   //   await User.update(id, values);
 
@@ -41,7 +41,7 @@ export default class UserRepository {
   // }
 
   // async delete(id: number): Promise<boolean> {
-  //   const User = getRepository(Users);
+  //   const User = getConnection(NODE_ENV).getRepository(Users);
 
   //   await User.delete(id);
 

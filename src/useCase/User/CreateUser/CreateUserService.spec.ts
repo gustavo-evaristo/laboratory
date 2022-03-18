@@ -1,5 +1,4 @@
 import CreateUserService from './CreateUserService';
-import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 

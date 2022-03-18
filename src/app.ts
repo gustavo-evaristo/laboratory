@@ -4,7 +4,7 @@ import 'express-async-errors';
 import 'reflect-metadata';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { dbConnect, dbTestConnect } from '@database';
+import Database from '@database';
 import routes from '@routes';
 import { NODE_ENV } from '@utils';
 
@@ -26,8 +26,11 @@ class App {
     this.express.use(cors());
   }
 
-  private database(): void {
-    NODE_ENV !== 'TEST' && dbConnect();
+  private database(): Database {
+    if (NODE_ENV !== 'TEST') {
+      const database = new Database(NODE_ENV);
+      return database;
+    }
   }
 
   private routes(): void {
