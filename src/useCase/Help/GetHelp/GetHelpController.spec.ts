@@ -1,14 +1,10 @@
 // import app from '@app';
-// import { dbConnect, dbClose } from '@database';
+// import { dbTestConnect, dbClose } from '@database';
 // import request from 'supertest';
 
 // describe('Get Help Controller', () => {
 //   beforeAll(async () => {
-//     await dbConnect();
-//   });
-
-//   afterAll(async () => {
-//     await dbClose();
+//     await dbTestConnect();
 //   });
 
 //   it('Should not be able to get help because dosnt exist', async () => {

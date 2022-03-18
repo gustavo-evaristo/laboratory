@@ -1,18 +1,10 @@
 import app from '@app';
-import { dbConnect, dbClose } from '@database';
+import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import request from 'supertest';
 
 describe('Create user Controller', () => {
   let emailExists: string;
-
-  beforeAll(async () => {
-    await dbConnect();
-  });
-
-  afterAll(async () => {
-    await dbClose();
-  });
 
   it('Should not be able to create a new User because password doesnt match', async () => {
     const { name, email, avatar, password } = faker();

@@ -1,17 +1,44 @@
 import { NODE_ENV } from '@utils';
-import { Connection, createConnection, getConnectionOptions, getConnection } from 'typeorm';
+import { Connection, createConnections, createConnection, getConnection } from 'typeorm';
 
 export const dbConnect = async (): Promise<Connection> => {
-  const defaultOptions = await getConnectionOptions();
+  await createConnections();
 
-  const connection = await createConnection(
-    Object.assign(defaultOptions, {
-      database: NODE_ENV === 'TEST' ? 'koob-help-test' : NODE_ENV === 'DEV' ? 'koob-help-dev' : 'koob-help-hml',
-      dropSchema: NODE_ENV === 'TEST',
-    }),
-  );
+  const connection = getConnection(NODE_ENV);
 
-  console.log('database connected in', NODE_ENV, connection.options.database);
+  const {
+    options: { database },
+  } = connection;
+
+  console.log('database connected in', NODE_ENV, database);
+
+  return connection;
+};
+
+export const dbTestConnect = async (): Promise<Connection> => {
+  await createConnection({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'postgres',
+    password: 'postgres',
+    database: 'koob-help-test',
+    synchronize: true,
+    entities: ['./src/entities/**.ts'],
+    migrations: ['./src/database/migrations/**.ts'],
+    cli: {
+      entitiesDir: './src/entities/',
+      migrationsDir: './src/database/migrations/',
+    },
+  });
+
+  const connection = getConnection();
+
+  const {
+    options: { database },
+  } = connection;
+
+  console.log('database connected in', NODE_ENV, database);
 
   return connection;
 };

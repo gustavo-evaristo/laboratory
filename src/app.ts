@@ -4,7 +4,7 @@ import 'express-async-errors';
 import 'reflect-metadata';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { dbConnect } from '@database';
+import { dbConnect, dbTestConnect } from '@database';
 import routes from '@routes';
 import { NODE_ENV } from '@utils';
 

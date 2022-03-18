@@ -26,13 +26,13 @@ export class Helps {
   file: string;
 
   @Column()
-  status!: string;
+  status: string;
 
   @Column()
   is_private!: boolean;
 
   @Column()
-  stars!: number;
+  stars: number;
 
   @CreateDateColumn()
   created_at: Date;
@@ -43,5 +43,6 @@ export class Helps {
   constructor() {
     if (!this.stars) this.stars = 5.0;
     if (!this.status) this.status = 'OPEN';
+    if (!this.file) this.file = '';
   }
 }

@@ -1,6 +1,7 @@
+import 'dotenv/config';
 import AuthUserService from './AuthUserService';
 import CreateUserService from '../CreateUser/CreateUserService';
-import { dbConnect, dbClose } from '@database';
+import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 
@@ -10,15 +11,9 @@ describe('Auth user Service', () => {
   let createUserService: CreateUserService;
 
   beforeAll(async () => {
-    await dbConnect();
-
     userRepository = new UserRepository();
     authUserService = new AuthUserService(userRepository);
     createUserService = new CreateUserService(userRepository);
-  });
-
-  afterAll(async () => {
-    await dbClose();
   });
 
   it('should not be able to login because email is invalid', () => {

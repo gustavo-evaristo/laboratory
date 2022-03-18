@@ -22,7 +22,7 @@ declare namespace UserType {
     email: string;
     password: string;
     confirm_password: string;
-    avatar: string;
+    avatar?: string;
   };
 
   type Find = {

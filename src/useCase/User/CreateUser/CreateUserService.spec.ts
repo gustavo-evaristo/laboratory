@@ -1,5 +1,5 @@
 import CreateUserService from './CreateUserService';
-import { dbConnect, dbClose } from '@database';
+import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import { UserRepository } from '@repositories';
 
@@ -9,14 +9,8 @@ describe('Create user Service', () => {
   let emailExists: string;
 
   beforeAll(async () => {
-    await dbConnect();
-
     userRepository = new UserRepository();
     createUserService = new CreateUserService(userRepository);
-  });
-
-  afterAll(async () => {
-    await dbClose();
   });
 
   it('should not be able to create a new user because passwords doesnt match', () => {

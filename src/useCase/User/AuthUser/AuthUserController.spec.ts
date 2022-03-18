@@ -1,17 +1,9 @@
 import app from '@app';
-import { dbConnect, dbClose } from '@database';
+import { dbTestConnect, dbClose } from '@database';
 import { faker } from '@utils';
 import request from 'supertest';
 
 describe('Auth user Controller', () => {
-  beforeAll(async () => {
-    await dbConnect();
-  });
-
-  afterAll(async () => {
-    await dbClose();
-  });
-
   it('Should not be able to login because email or password is invalid', async () => {
     const { email, password } = faker();
 

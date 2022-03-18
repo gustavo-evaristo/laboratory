@@ -32,7 +32,7 @@ export const decryptPassword = (password: string, passwordCompare: string): bool
 };
 
 export const generateToken = (id: number): string => {
-  return jwt.sign({ id }, process.env.SECRET, {
+  return jwt.sign({ id }, SECRET, {
     expiresIn: '30d',
   });
 };

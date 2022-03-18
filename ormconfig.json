@@ -1,19 +1,42 @@
-{
-  "type": "postgres",
-  "host": "localhost",
-  "port": "5432",
-  "username": "postgres",
-  "password": "postgres",
-  "database": "koob-help-dev",
-  "synchronize": true,
-  "entities": [
-    "./src/entities/**.ts"
-  ],
-  "migrations": [
-    "./src/database/migrations/**.ts"
-  ],
-  "cli": {
-    "entitiesDir": "./src/entities/",
-    "migrationsDir": "./src/database/migrations/"
+[
+  {
+    "name": "DEV",
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "koob-help-dev",
+    "synchronize": true,
+    "entities": [
+      "./src/entities/**.ts"
+    ],
+    "migrations": [
+      "./src/database/migrations/**.ts"
+    ],
+    "cli": {
+      "entitiesDir": "./src/entities/",
+      "migrationsDir": "./src/database/migrations/"
+    }
+  },
+  {
+    "name": "HML",
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "koob-help-hml",
+    "synchronize": true,
+    "entities": [
+      "./src/entities/**.ts"
+    ],
+    "migrations": [
+      "./src/database/migrations/**.ts"
+    ],
+    "cli": {
+      "entitiesDir": "./src/entities/",
+      "migrationsDir": "./src/database/migrations/"
+    }
   }
-}
+]
