@@ -42,7 +42,7 @@ export default class HelpRepository {
   }
 
   // async update({ id, values }: UserType.Update): Promise<boolean> {
-  //   const User = getConnection(NODE_ENV).getRepository(Users);
+  //   const User = getRepository(Users);
 
   //   await User.update(id, values);
 
@@ -50,7 +50,7 @@ export default class HelpRepository {
   // }
 
   // async delete(id: number): Promise<boolean> {
-  //   const User = getConnection(NODE_ENV).getRepository(Users);
+  //   const User = getRepository(Users);
 
   //   await User.delete(id);
 

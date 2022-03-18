@@ -1,30 +1,11 @@
 import 'dotenv/config';
-import { Connection, createConnection, getConnection } from 'typeorm';
-
-const dbTestConnect = async (): Promise<Connection> => {
-  await createConnection({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'postgres',
-    database: 'koob-help-test',
-    synchronize: true,
-    entities: ['./src/entities/**.ts'],
-    migrations: ['./src/database/migrations/**.ts'],
-    cli: {
-      entitiesDir: './src/entities/',
-      migrationsDir: './src/database/migrations/',
-    },
-  });
-
-  return getConnection();
-};
+import { getConnection, createConnections } from 'typeorm';
 
 beforeAll(async () => {
-  await dbTestConnect();
+  await createConnections();
+  getConnection('TEST');
 });
 
 afterAll(async () => {
-  getConnection().close();
+  getConnection('TEST').close();
 });

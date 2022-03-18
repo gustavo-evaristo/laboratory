@@ -27,10 +27,8 @@ class App {
   }
 
   private database(): Database {
-    if (NODE_ENV !== 'TEST') {
-      const database = new Database(NODE_ENV);
-      return database;
-    }
+    const database = new Database(NODE_ENV);
+    return database;
   }
 
   private routes(): void {
