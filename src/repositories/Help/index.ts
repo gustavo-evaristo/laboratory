@@ -13,7 +13,7 @@ export default class HelpRepository {
     return await this.repository.find();
   }
 
-  async findOne(id: string | number): Promise<HelpType.Values> {
+  async findOne(id: number): Promise<HelpType.Values> {
     return await this.repository.findOne(id);
   }
 
@@ -41,19 +41,11 @@ export default class HelpRepository {
     return help;
   }
 
-  // async update({ id, values }: UserType.Update): Promise<boolean> {
-  //   const User = getRepository(Users);
+  async update({ id, values }: HelpType.Update): Promise<boolean> {
+    return !!(await this.repository.update(id, values));
+  }
 
-  //   await User.update(id, values);
-
-  //   return true;
-  // }
-
-  // async delete(id: number): Promise<boolean> {
-  //   const User = getRepository(Users);
-
-  //   await User.delete(id);
-
-  //   return true;
-  // }
+  async delete(id: number): Promise<boolean> {
+    return !!(await this.repository.delete(id));
+  }
 }

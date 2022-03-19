@@ -27,4 +27,9 @@ declare namespace HelpType {
   type GetRequest = {
     id: number;
   };
+
+  type Update = {
+    id: number;
+    values: Partial<HelpType.Values>;
+  };
 }
