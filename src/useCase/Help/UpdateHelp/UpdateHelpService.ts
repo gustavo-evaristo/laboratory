@@ -6,7 +6,7 @@ export default class UpdateHelpService {
   async execute({ id, values }: HelpType.Update): Promise<boolean> {
     const help = await this.helpRepository.update({ id, values });
 
-    if (!help) throw new Error('failed to update help');
+    if (!help) throw new Error('Failed to update help');
 
     return true;
   }

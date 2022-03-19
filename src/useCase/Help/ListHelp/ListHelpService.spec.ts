@@ -21,8 +21,9 @@ describe('List Help Service', () => {
     userService = new CreateUserService(userRepository);
   });
 
-  it('should not be able to get a helps because doesnt exist', () => {
-    expect(async () => await listHelpService.execute()).rejects.toThrow(new Error('Helps not exists'));
+  it('should not be able to get a helps because is empty', async () => {
+    const helps = await listHelpService.execute();
+    expect(helps).toEqual([]);
   });
 
   it('should be able to list a help', async () => {

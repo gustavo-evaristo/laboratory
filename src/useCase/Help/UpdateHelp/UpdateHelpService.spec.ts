@@ -24,9 +24,9 @@ describe('Update Help Service', () => {
   });
 
   it('should not be able to update a help because doesnt exist', () => {
-    expect(async () => await updateHelpService.execute({ id: 1, values: {} })).rejects.toThrow(
-      new Error('Failed to update help'),
-    );
+    expect(
+      async () => await updateHelpService.execute({ id: 10, values: { title: 'Update Help Failed' } }),
+    ).rejects.toThrow(new Error('Failed to update help'));
   });
 
   it('should be able to update a help', async () => {
