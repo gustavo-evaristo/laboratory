@@ -5,6 +5,7 @@ import { NODE_ENV } from '@utils';
 const database = new Database(NODE_ENV);
 
 beforeAll(async (): Promise<void> => {
+  jest.clearAllMocks();
   return database.connect();
 });
 

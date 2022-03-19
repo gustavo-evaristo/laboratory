@@ -9,10 +9,10 @@ export default class HelpRepository {
     return await Help.find();
   }
 
-  async findOne(id: number): Promise<HelpType.Values> {
+  async findOne(id: string | number): Promise<HelpType.Values> {
     const Help = getConnection(NODE_ENV).getRepository(Helps);
 
-    return await Help.findOne({ id });
+    return await Help.findOne(id);
   }
 
   async create({
