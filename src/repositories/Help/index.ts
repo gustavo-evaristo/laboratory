@@ -1,4 +1,4 @@
-import { getConnection, Repository } from 'typeorm';
+import { getConnection, Repository, UpdateResult } from 'typeorm';
 import { Helps } from '@entities';
 import { NODE_ENV } from '@utils';
 
@@ -42,10 +42,10 @@ export default class HelpRepository {
   }
 
   async update({ id, values }: HelpType.Update): Promise<boolean> {
-    return !!(await this.repository.update(id, values));
+    return !!(await this.repository.update(id, values)).affected;
   }
 
   async delete(id: number): Promise<boolean> {
-    return !!(await this.repository.delete(id));
+    return !!(await this.repository.delete(id)).affected;
   }
 }
