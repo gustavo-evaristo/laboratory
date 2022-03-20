@@ -32,4 +32,8 @@ declare namespace HelpType {
     id: number;
     values: Partial<HelpType.Values>;
   };
+
+  type Delete = {
+    id: number;
+  };
 }
