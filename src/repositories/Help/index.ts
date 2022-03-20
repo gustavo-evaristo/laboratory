@@ -1,4 +1,4 @@
-import { getConnection, Repository, UpdateResult } from 'typeorm';
+import { getConnection, Repository } from 'typeorm';
 import { Helps } from '@entities';
 import { NODE_ENV } from '@utils';
 
@@ -17,15 +17,7 @@ export default class HelpRepository {
     return await this.repository.findOne(id);
   }
 
-  async create({
-    title,
-    description,
-    category,
-    file,
-    owner,
-    is_private,
-    status,
-  }: HelpType.Create): Promise<HelpType.Values> {
+  async create({ title, description, category, file, owner, is_private, status }: HelpType.Create): Promise<boolean> {
     const help = this.repository.create({
       title,
       description,
@@ -38,11 +30,11 @@ export default class HelpRepository {
 
     await this.repository.save(help);
 
-    return help;
+    return true;
   }
 
   async update({ id, values }: HelpType.Update): Promise<boolean> {
-    return !!(await this.repository.update(id, values)).affected;
+    return !!(await this.repository.update(id, { ...values })).affected;
   }
 
   async delete(id: number): Promise<boolean> {

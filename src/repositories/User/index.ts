@@ -31,7 +31,7 @@ export default class UserRepository {
   }
 
   async update({ id, values }: UserType.Update): Promise<boolean> {
-    return !!(await this.repository.update(id, values)).affected;
+    return !!(await this.repository.update(id, { ...values })).affected;
   }
 
   async delete(id: number): Promise<boolean> {
