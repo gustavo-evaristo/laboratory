@@ -1,6 +1,6 @@
 import { getConnection, Repository } from 'typeorm';
 import { Users } from '@entities';
-import { isEmpty, NODE_ENV } from '@utils';
+import { NODE_ENV } from '@utils';
 
 export default class UserRepository {
   private repository: Repository<Users>;
@@ -9,16 +9,12 @@ export default class UserRepository {
     this.repository = getConnection(NODE_ENV).getRepository(Users);
   }
 
-  async findOne({ id, email }: UserType.Find): Promise<Users | null> {
-    if (!isEmpty(id)) {
+  async findOne({ id, email }: UserType.Find): Promise<Users> {
+    if (id) {
       return await this.repository.findOne({ id, active: true });
     }
 
-    if (!isEmpty(email)) {
-      return await this.repository.findOne({ email, active: true });
-    }
-
-    return null;
+    return await this.repository.findOne({ email, active: true });
   }
 
   async create({ name, email, avatar, password }: UserType.Create): Promise<UserType.Values> {
@@ -34,15 +30,11 @@ export default class UserRepository {
     return user;
   }
 
-  // async update({ id, values }: UserType.Update): Promise<boolean> {
+  async update({ id, values }: UserType.Update): Promise<boolean> {
+    return !!(await this.repository.update(id, values)).affected;
+  }
 
-  //   return !!await this.repository.update(id, values);
-
-  // }
-
-  // async delete(id: number): Promise<boolean> {
-
-  //  return !!await this.repository.delete(id);
-
-  // }
+  async delete(id: number): Promise<boolean> {
+    return !!(await this.repository.delete(id)).affected;
+  }
 }

@@ -7,7 +7,7 @@ export default class GetHelpController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
 
-    const help = await this.helpService.execute(id);
+    const help = await this.helpService.execute(Number(id));
 
     return res.status(200).json(help);
   }
