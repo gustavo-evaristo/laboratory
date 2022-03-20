@@ -29,9 +29,9 @@ describe('List Help Service', () => {
   it('should be able to list a help', async () => {
     const { name, email, password, title, description, category } = faker();
 
-    const { id: owner } = await userService.execute({ name, email, password, confirm_password: password });
+    await userService.execute({ name, email, password, confirm_password: password });
 
-    await createHelpService.execute({ title, description, category, owner, is_private: false });
+    await createHelpService.execute({ title, description, category, owner: 1, is_private: false });
 
     const help = await listHelpService.execute();
 

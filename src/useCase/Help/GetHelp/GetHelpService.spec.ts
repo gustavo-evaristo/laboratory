@@ -30,9 +30,9 @@ describe('Get Help Service', () => {
 
     const { id: owner } = await userService.execute({ name, email, password, confirm_password: password });
 
-    const { id } = await createHelpService.execute({ title, description, category, owner, is_private: false });
+    await createHelpService.execute({ title, description, category, owner, is_private: false });
 
-    const help = await getHelpService.execute(id);
+    const help = await getHelpService.execute(1);
 
     expect(help).toHaveProperty('id');
   });
