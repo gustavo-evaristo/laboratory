@@ -14,7 +14,7 @@ declare namespace ExamType {
   };
 
   type Update = {
-    name: number;
+    id: number;
     values: Values;
   };
 }

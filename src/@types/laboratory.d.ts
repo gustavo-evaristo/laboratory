@@ -14,7 +14,7 @@ declare namespace LaboratoryType {
   };
 
   type Update = {
-    name: number;
+    id: number;
     values: Values;
   };
 }

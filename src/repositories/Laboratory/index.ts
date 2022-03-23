@@ -24,11 +24,11 @@ export default class LaboratoryRepository {
     return laboratory;
   }
 
-  async update({ name, values }: LaboratoryType.Update): Promise<boolean> {
-    return !!(await this.repository.update(name, { ...values })).affected;
+  async update({ id, values }: LaboratoryType.Update): Promise<boolean> {
+    return !!(await this.repository.update(id, { ...values })).affected;
   }
 
-  async delete(name: string): Promise<boolean> {
-    return !!(await this.repository.delete(name)).affected;
+  async delete(id: number): Promise<boolean> {
+    return !!(await this.repository.delete(id)).affected;
   }
 }

@@ -24,11 +24,11 @@ export default class ExamRepository {
     return exam;
   }
 
-  async update({ name, values }: ExamType.Update): Promise<boolean> {
-    return !!(await this.repository.update(name, { ...values })).affected;
+  async update({ id, values }: ExamType.Update): Promise<boolean> {
+    return !!(await this.repository.update(id, { ...values })).affected;
   }
 
-  async delete(name: string): Promise<boolean> {
-    return !!(await this.repository.delete(name)).affected;
+  async delete(id: number): Promise<boolean> {
+    return !!(await this.repository.delete(id)).affected;
   }
 }
