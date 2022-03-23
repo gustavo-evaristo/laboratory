@@ -38,7 +38,7 @@ class App {
 
     this.express.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       if (err instanceof Error) {
-        return res.status(406).json({
+        return res.status(400).json({
           error: err.message,
         });
       }
