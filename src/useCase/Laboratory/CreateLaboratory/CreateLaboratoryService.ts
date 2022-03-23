@@ -9,8 +9,6 @@ export default class CreateLaboratoryService {
       address,
     });
 
-    if (!laboratory) throw new Error('Error when registering laboratory');
-
     return laboratory;
   }
 }
