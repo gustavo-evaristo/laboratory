@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
 
-export class helps1647022413920 implements MigrationInterface {
+export class examsLaboratories1648037158812 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'helps',
+        name: 'exams-laboratories',
         columns: [
           {
             name: 'id',
@@ -15,45 +15,19 @@ export class helps1647022413920 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'owner',
+            name: 'laboratory',
             type: 'integer',
             isNullable: false,
           },
           {
-            name: 'title',
-            type: 'varchar',
+            name: 'exam',
+            type: 'integer',
             isNullable: false,
-          },
-          {
-            name: 'category',
-            type: 'varchar',
-            isNullable: false,
-          },
-          {
-            name: 'description',
-            type: 'varchar',
-            isNullable: false,
-          },
-          {
-            name: 'file',
-            type: 'varchar',
-            isNullable: true,
-          },
-          {
-            name: 'is_private',
-            type: 'boolean',
-            isNullable: false,
-            default: false,
           },
           {
             name: 'status',
             type: 'varchar',
-            isNullable: true,
-          },
-          {
-            name: 'stars',
-            type: 'decimal',
-            isNullable: true,
+            isNullable: false,
           },
           {
             name: 'created_at',
@@ -71,18 +45,30 @@ export class helps1647022413920 implements MigrationInterface {
 
     queryRunner.clearSqlMemory();
 
-    const foreignKey = new TableForeignKey({
-      columnNames: ['owner'],
+    const laboratoryForeignKey = new TableForeignKey({
+      columnNames: ['laboratory'],
       referencedColumnNames: ['id'],
-      referencedTableName: 'users',
+      referencedTableName: 'laboratory',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
     });
 
-    await queryRunner.createForeignKey('helps', foreignKey);
+    const examForeignKey = new TableForeignKey({
+      columnNames: ['exam'],
+      referencedColumnNames: ['id'],
+      referencedTableName: 'exam',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+    });
+
+    await queryRunner.createForeignKey('exams-laboratories', laboratoryForeignKey);
+
+    queryRunner.clearSqlMemory();
+
+    await queryRunner.createForeignKey('exams-laboratories', examForeignKey);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('helps');
+    await queryRunner.dropTable('exams-laboratories');
   }
 }

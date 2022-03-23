@@ -21,7 +21,6 @@ module.exports = {
           "@useCase": ["./src/useCase"],
           "@routes": ["./src/routes"],
           "@app": ["./src/app.ts"],
-          "@middlewares": ["./src/middlewares"],
         }
       }]
     ],

@@ -1,2 +1,2 @@
-export { default as UserRepository } from './User';
-export { default as HelpRepository } from './Help';
+export { default as ExamRepository } from './Exam';
+export { default as LaboratoryRepository } from './Laboratory';

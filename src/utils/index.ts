@@ -1,4 +1,1 @@
-export * from './env';
-export * from './helpers/strings';
-export * from './helpers/faker';
-export * from './modules';
+export const { NODE_ENV, PORT } = process.env;

@@ -23,7 +23,6 @@
         "@useCase": ["./src/useCase/index"],
         "@routes": ["./src/routes/index"],
         "@app": ["./src/app.ts"],
-        "@middlewares": ["./src/middlewares"],
       },
     },
 

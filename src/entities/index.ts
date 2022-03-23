@@ -1,2 +1,2 @@
-export * from './Users';
-export * from './Helps';
+export * from './Laboratory';
+export * from './Exam';
