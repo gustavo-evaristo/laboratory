@@ -1,14 +1,10 @@
 import 'dotenv/config';
 import Database from '@database';
-import { NODE_ENV } from '@utils';
-
-const database = new Database(NODE_ENV);
 
 beforeAll(async (): Promise<void> => {
-  jest.clearAllMocks();
-  return database.connect();
+  return Database.connect();
 });
 
 afterAll(async (): Promise<void> => {
-  return await database.close();
+  return await Database.close();
 });

@@ -1,1 +1,1 @@
-export const { NODE_ENV, PORT } = process.env;
+export const { PORT } = process.env;

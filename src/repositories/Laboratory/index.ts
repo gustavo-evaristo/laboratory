@@ -1,12 +1,11 @@
-import { getConnection, Repository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import { Laboratory } from '@entities';
-import { NODE_ENV } from '@utils';
 
 export default class LaboratoryRepository {
   private repository: Repository<Laboratory>;
 
   constructor() {
-    this.repository = getConnection(NODE_ENV).getRepository(Laboratory);
+    this.repository = getRepository(Laboratory);
   }
 
   async find(): Promise<LaboratoryType.Values[]> {

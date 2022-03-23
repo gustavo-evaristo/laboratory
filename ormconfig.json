@@ -1,33 +1,10 @@
-[
-  {
-    "name": "TEST",
+{
     "type": "postgres",
     "host": "localhost",
     "port": "5432",
     "username": "postgres",
     "password": "postgres",
-    "database": "laboratory-test",
-    "synchronize": true,
-    "dropSchema": true,
-    "entities": [
-      "./src/entities/**.ts"
-    ],
-    "migrations": [
-      "./src/database/migrations/**.ts"
-    ],
-    "cli": {
-      "entitiesDir": "./src/entities/",
-      "migrationsDir": "./src/database/migrations/"
-    }
-  },
-  {
-    "name": "DEV",
-    "type": "postgres",
-    "host": "localhost",
-    "port": "5432",
-    "username": "postgres",
-    "password": "postgres",
-    "database": "laboratory-dev",
+    "database": "laboratory",
     "synchronize": true,
     "entities": [
       "./src/entities/**.ts"
@@ -40,4 +17,3 @@
       "migrationsDir": "./src/database/migrations/"
     }
   }
-]

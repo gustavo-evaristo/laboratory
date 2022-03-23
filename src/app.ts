@@ -6,7 +6,6 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import Database from '@database';
 import routes from '@routes';
-import { NODE_ENV } from '@utils';
 
 class App {
   public express: Application;
@@ -27,10 +26,7 @@ class App {
   }
 
   private database(): Promise<void> {
-    if (NODE_ENV !== 'TEST') {
-      const database = new Database(NODE_ENV);
-      return database.connect();
-    }
+    return Database.connect();
   }
 
   private routes(): void {

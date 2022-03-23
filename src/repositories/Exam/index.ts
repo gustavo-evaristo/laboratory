@@ -1,12 +1,11 @@
-import { getConnection, Repository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import { Exam } from '@entities';
-import { NODE_ENV } from '@utils';
 
 export default class ExamRepository {
   private repository: Repository<Exam>;
 
   constructor() {
-    this.repository = getConnection(NODE_ENV).getRepository(Exam);
+    this.repository = getRepository(Exam);
   }
 
   async find(): Promise<ExamType.Values[]> {

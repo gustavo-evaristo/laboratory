@@ -1,26 +1,22 @@
-import { Connection, createConnections, getConnection } from 'typeorm';
+import { Connection, createConnection, getConnection } from 'typeorm';
 
-export default class Database {
-  private connectionName: string;
-
-  constructor(connectionName: string) {
-    this.connectionName = connectionName;
-  }
-
+class Database {
   public async connect(): Promise<void> {
-    await this.createConnections();
-    this.getConnection(this.connectionName);
+    await this.createConnection();
+    this.getConnection();
   }
 
-  private async createConnections(): Promise<Connection[]> {
-    return await createConnections();
+  private async createConnection(): Promise<Connection> {
+    return await createConnection();
   }
 
-  private getConnection(name: string): Connection {
-    return getConnection(name);
+  private getConnection(): Connection {
+    return getConnection();
   }
 
   public async close(): Promise<void> {
-    return getConnection(this.connectionName).close();
+    return getConnection().close();
   }
 }
+
+export default new Database();
