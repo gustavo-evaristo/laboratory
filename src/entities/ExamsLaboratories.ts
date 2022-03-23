@@ -11,14 +11,14 @@ export class ExamsLaboratories {
   laboratory!: number;
 
   @JoinColumn({ name: 'laboratory' })
-  @ManyToOne(() => Laboratory)
+  @ManyToOne(() => Laboratory, { onDelete: 'CASCADE' })
   _laboratory!: Laboratory;
 
   @Column()
   exam!: number;
 
   @JoinColumn({ name: 'exam' })
-  @ManyToOne(() => Exam)
+  @ManyToOne(() => Exam, { onDelete: 'CASCADE' })
   _exam!: Exam;
 
   @Column({ default: 'ACTIVE' })

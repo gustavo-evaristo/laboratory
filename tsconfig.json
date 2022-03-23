@@ -15,7 +15,6 @@
       "baseUrl": ".",
       "removeComments": true,
       "paths": {
-        "@services": ["./src/services/index"],
         "@database": ["./src/database/index"],
         "@entities": ["src/entities/index"],
         "@utils": ["./src/utils/index"],

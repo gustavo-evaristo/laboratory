@@ -1,11 +1,11 @@
 import { LaboratoryRepository } from '@repositories';
-import CreatLaboratoryService from './CreateLaboratoryService';
+import CreateLaboratoryService from './CreateLaboratoryService';
 
-describe('Create exam service', () => {
-  it('Should not be able to register exam', async () => {
+describe('Create laboratory', () => {
+  it('Should be able to register laboratory', async () => {
     const laboratoryRepository = new LaboratoryRepository();
 
-    const laboratoryService = new CreatLaboratoryService(laboratoryRepository);
+    const laboratoryService = new CreateLaboratoryService(laboratoryRepository);
 
     const laboratory = await laboratoryService.execute({ name: 'Laboratorio de Sao Paulo', address: 'Rua bonita' });
 

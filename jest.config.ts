@@ -7,7 +7,6 @@ export default {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '^@services(.*)$': '<rootDir>/src/services',
     '^@database(.*)$': '<rootDir>/src/database',
     '^@utils(.*)$': '<rootDir>/src/utils',
     '^@entities(.*)$': '<rootDir>/src/entities',
@@ -23,8 +22,6 @@ export default {
     '/migrations/',
     '/database/',
     '/entities/',
-    '/repositories/',
-    '/utils/',
     'src/app.ts',
     'src/server.ts',
   ],

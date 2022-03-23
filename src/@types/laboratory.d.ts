@@ -15,6 +15,10 @@ declare namespace LaboratoryType {
 
   type Update = {
     id: number;
-    values: Values;
+    values?: Partial<Values>;
+  };
+
+  type Delete = {
+    id: number;
   };
 }

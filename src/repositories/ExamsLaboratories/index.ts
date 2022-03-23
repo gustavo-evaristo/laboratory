@@ -9,7 +9,7 @@ export default class ExamsLaboratoriesRepository {
   }
 
   async find(): Promise<ExamsLaboratoriesType.Values[]> {
-    return await this.repository.find({ status: 'ACTIVE' });
+    return await this.repository.find({ where: { status: 'ACTIVE' }, relations: ['laboratory', 'exam'] });
   }
 
   async create({ laboratory, exam }: ExamsLaboratoriesType.Create): Promise<ExamsLaboratoriesType.Values> {
