@@ -20,8 +20,8 @@ export default class CreateLaboratoryController {
 
     const { laboratories }: LaboratoryType.CreateInBatch = req.body;
 
-    const laboratoryList = await this.laboratoryService.executeInBatch(laboratories);
+    await this.laboratoryService.executeInBatch(laboratories);
 
-    return res.status(200).json(laboratoryList);
+    return res.status(200).json({ message: 'successfully created laboratories' });
   }
 }

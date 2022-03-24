@@ -1,10 +1,12 @@
-FROM node:16
+FROM node:alpine
 
-COPY . .
+WORKDIR /usr/app
 
-WORKDIR .
+COPY . ./
 
 RUN yarn && yarn build
+
+COPY . .
 
 EXPOSE 3000
 

@@ -1,7 +1,8 @@
 /* eslint-disable */
-const { addBabelPlugin, override } = require('customize-cra');
+const { addBabelPlugin, override, addDecoratorsLegacy } = require('customize-cra');
 
 module.exports = override(
+  addDecoratorsLegacy(),
   addBabelPlugin([
     'babel-plugin-root-import',
     {

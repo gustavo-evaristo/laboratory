@@ -13,12 +13,14 @@ export default class CreateLaboratoryService {
     return laboratory;
   }
 
-  async executeInBatch(laboratories: LaboratoryType.Create[]): Promise<void> {
+  async executeInBatch(laboratories: LaboratoryType.Create[]): Promise<boolean> {
     laboratories.map(async ({ name, address }) => {
       await this.laboratoryRepository.create({
         name,
         address,
       });
     });
+
+    return true;
   }
 }

@@ -1,19 +1,19 @@
 {
     "type": "postgres",
-    "host": "localhost",
+    "host": "database-laboratory",
     "port": "5432",
     "username": "postgres",
     "password": "postgres",
     "database": "laboratory",
     "synchronize": true,
     "entities": [
-      "./src/entities/**.ts"
+      "./build/entities/**.js"
     ],
     "migrations": [
-      "./src/database/migrations/**.ts"
+      "./build/database/migrations/**.js"
     ],
     "cli": {
-      "entitiesDir": "./src/entities/",
-      "migrationsDir": "./src/database/migrations/"
+      "entitiesDir": "./build/entities/",
+      "migrationsDir": "./build/database/migrations/"
     }
   }

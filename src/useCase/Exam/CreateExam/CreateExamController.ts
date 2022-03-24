@@ -20,8 +20,8 @@ export default class CreateExamController {
 
     const { exams }: ExamType.CreateInBatch = req.body;
 
-    const exam = await this.examService.executeInBatch(exams);
+    await this.examService.executeInBatch(exams);
 
-    return res.status(200).json(exam);
+    return res.status(200).json({ message: 'successfully created exams' });
   }
 }
