@@ -2,9 +2,9 @@ name: Cheks
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ develop ]
 
 jobs:
   code:
@@ -24,6 +24,3 @@ jobs:
 
       - name: Run ESLint
         run: yarn lint
-
-      # - name: Run Tests
-      #   run: yarn test
