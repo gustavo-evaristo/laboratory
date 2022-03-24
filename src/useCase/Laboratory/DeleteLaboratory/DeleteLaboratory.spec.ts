@@ -4,7 +4,7 @@ import CreateLaboratoryService from '../CreateLaboratory/CreateLaboratoryService
 import request from 'supertest';
 import app from '@app';
 
-describe('Delete laboratory', () => {
+describe('Delete laboratory test', () => {
   it('Should be able to delete laboratory', async () => {
     const { status, body } = await request(app).delete('/laboratory/delete');
 

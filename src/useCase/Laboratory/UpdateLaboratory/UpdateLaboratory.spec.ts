@@ -4,7 +4,7 @@ import CreateLaboratoryService from '../CreateLaboratory/CreateLaboratoryService
 import request from 'supertest';
 import app from '@app';
 
-describe('Update laboratory', () => {
+describe('Update laboratory test', () => {
   it('Should not be able to update laboratory because fields are invalid', async () => {
     const { status, body } = await request(app).put('/laboratory/update');
 

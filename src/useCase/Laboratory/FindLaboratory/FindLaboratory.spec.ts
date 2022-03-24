@@ -1,7 +1,7 @@
 import request from 'supertest';
 import app from '@app';
 
-describe('Find laboratory', () => {
+describe('Find laboratory test', () => {
   it('Should be able to list all laboratories', async () => {
     const { status, body } = await request(app).get('/laboratory/list');
 
