@@ -4,13 +4,52 @@
   https://laboratory-api-node.herokuapp.com
 
 
+## Consultar Exame por nome
 
-## Consultar Exames
+```
+    METODO: POST
+    ENDPOINT: /exam/search
+
+    {
+        "name": "nome do exame"
+    }
+```
+
+## Listar Exames
 
 ```
     METODO: GET
-    ENDPOINT: /exams/list
+    ENDPOINT: /exam/list
 ```
+
+## Criar Exame
+
+```
+    METODO: POST
+    ENDPOINT: /exams/create
+
+    {
+        "name": "nome do exame",
+        "type": "tipo do exame"
+
+    }
+```
+
+## Atualizar Exame
+
+```
+    METODO: PUT
+    ENDPOINT: /exams/create
+
+    {
+        "id": 1,
+        "values": {
+            "name": "nome do exame",
+            "type": "tipo do exame",
+            "status": "ACTIVE",
+        }
+
+    }
 
   - Consultar Exames - Metodo GET, Url: https://laboratory-api-node.herokuapp.com/exams/list
   - Cadastrar Exames - Metodo GET, Url: https://laboratory-api-node.herokuapp.com/exams/create
