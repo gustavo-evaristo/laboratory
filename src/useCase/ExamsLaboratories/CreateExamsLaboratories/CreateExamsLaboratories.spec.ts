@@ -41,6 +41,32 @@ describe('Create exams laboratories test', () => {
     );
   });
 
+  it('Should be able to register exam in batch', async () => {
+    const examRepository = new ExamRepository();
+    const laboratoryRepository = new LaboratoryRepository();
+
+    const examService = new CreateExamService(examRepository);
+    const laboratoryService = new CreateLaboratoryService(laboratoryRepository);
+
+    const { id: exam_first } = await examService.execute({ name: 'teste de exame', type: 'teste' });
+
+    const { id: exam_second } = await examService.execute({ name: 'teste de exame', type: 'teste' });
+
+    const { id: laboratory } = await laboratoryService.execute({
+      name: 'teste de laboratorio',
+      address: 'Rua teste',
+    });
+
+    const examsLaboratories = [
+      { exam: exam_first, laboratory },
+      { exam: exam_second, laboratory },
+    ];
+
+    const { status } = await request(app).post('/exams-laboratories/create-in-batch').send({ examsLaboratories });
+
+    expect(status).toBe(200);
+  });
+
   it('Should be able to register exam', async () => {
     const examsLaboratoriesRepository = new ExamsLaboratoriesRepository();
     const examRepository = new ExamRepository();

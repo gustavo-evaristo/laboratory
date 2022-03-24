@@ -9,4 +9,15 @@ export default class CreatExamService {
       type,
     });
   }
+
+  async executeInBatch(exams: ExamType.Create[]): Promise<boolean> {
+    exams.map(async ({ name, type }) => {
+      await this.examRepository.create({
+        name,
+        type,
+      });
+    });
+
+    return true;
+  }
 }

@@ -20,4 +20,23 @@ export default class CreateExamLaboratoriesService {
       exam,
     });
   }
+
+  async executeInBatch(examsLaboratories: ExamsLaboratoriesType.Create[]): Promise<boolean> {
+    const examRepository = new ExamRepository();
+    const laboratoryRepository = new LaboratoryRepository();
+
+    examsLaboratories.map(async ({ laboratory, exam }) => {
+      const examAlreadyExists = !!(await examRepository.find(exam));
+      const laboratoryAlreadyExists = !!(await laboratoryRepository.find(laboratory));
+
+      if (examAlreadyExists && laboratoryAlreadyExists) {
+        return await this.examsLaboratories.create({
+          laboratory,
+          exam,
+        });
+      }
+    });
+
+    return true;
+  }
 }

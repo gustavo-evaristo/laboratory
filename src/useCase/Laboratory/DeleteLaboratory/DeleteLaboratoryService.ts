@@ -10,4 +10,16 @@ export default class DeleteLaboratoryService {
 
     return await this.laboratoryRepository.delete(id);
   }
+
+  async executeInBatch(laboratories: number[]): Promise<boolean> {
+    laboratories.map(async (laboratory) => {
+      const laboratoryExists = !!(await this.laboratoryRepository.find(laboratory));
+
+      if (laboratoryExists) {
+        return await this.laboratoryRepository.delete(laboratory);
+      }
+    });
+
+    return true;
+  }
 }

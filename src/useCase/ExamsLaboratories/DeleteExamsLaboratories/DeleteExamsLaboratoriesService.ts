@@ -10,4 +10,16 @@ export default class DeleteExamsLaboratoriesService {
 
     return await this.examsLaboratories.delete(id);
   }
+
+  async executeInBatch(examsLaboratories: number[]): Promise<boolean> {
+    examsLaboratories.map(async (id) => {
+      const examsLaboratoriesAlreadyExists = !!(await this.examsLaboratories.find(id));
+
+      if (examsLaboratoriesAlreadyExists) {
+        return await this.examsLaboratories.delete(id);
+      }
+    });
+
+    return true;
+  }
 }

@@ -14,4 +14,14 @@ export default class UpdateExamController {
 
     return res.status(200).json({ message: 'Exam updated successfully' });
   }
+
+  async handleInBatch(req: Request, res: Response): Promise<Response> {
+    await examForm('updateInBatch', req.body);
+
+    const { exams }: ExamType.UpdateInBatch = req.body;
+
+    await this.examService.executeInBatch(exams);
+
+    return res.status(200).json({ message: 'Exam updated successfully' });
+  }
 }

@@ -15,6 +15,10 @@ declare namespace ExamsLaboratoriesType {
     exam: number;
   };
 
+  type CreateInBatch = {
+    examsLaboratories: Create[];
+  };
+
   type Update = {
     id: number;
     values: Values;
@@ -22,5 +26,9 @@ declare namespace ExamsLaboratoriesType {
 
   type Delete = {
     id: number;
+  };
+
+  type DeleteInBatch = {
+    examsLaboratories: number[];
   };
 }

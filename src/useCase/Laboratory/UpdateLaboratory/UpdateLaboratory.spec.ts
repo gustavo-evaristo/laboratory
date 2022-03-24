@@ -23,6 +23,27 @@ describe('Update laboratory', () => {
     );
   });
 
+  it('Should be able to update laboratory in batch', async () => {
+    const laboratoryRepository = new LaboratoryRepository();
+
+    const createLaboratoryService = new CreateLaboratoryService(laboratoryRepository);
+
+    const { id: firts_id } = await createLaboratoryService.execute({ name: 'Laboratorio Teste', address: 'Rua teste' });
+    const { id: second_id } = await createLaboratoryService.execute({
+      name: 'Laboratorio Teste',
+      address: 'Rua teste',
+    });
+
+    const laboratories = [
+      { id: firts_id, values: { name: 'Laboratorio Teste atualizado 1', address: 'Rua Teste Atualizada 1' } },
+      { id: second_id, values: { name: 'Laboratorio Teste atualizado 2', address: 'Rua Teste Atualizada 2' } },
+    ];
+
+    const { status, body } = await request(app).put('/laboratory/update-in-batch').send({ laboratories });
+
+    expect(status).toBe(200);
+  });
+
   it('Should be able to update laboratory', async () => {
     const laboratoryRepository = new LaboratoryRepository();
 

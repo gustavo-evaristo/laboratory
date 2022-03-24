@@ -10,4 +10,16 @@ export default class CreatExamService {
 
     return await this.examRepository.delete(id);
   }
+
+  async executeInBatch(exams: number[]): Promise<boolean> {
+    exams.map(async (exam) => {
+      const examExists = !!(await this.examRepository.find(exam));
+
+      if (examExists) {
+        return await this.examRepository.delete(exam);
+      }
+    });
+
+    return true;
+  }
 }

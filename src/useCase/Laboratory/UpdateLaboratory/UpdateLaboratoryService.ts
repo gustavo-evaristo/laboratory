@@ -13,4 +13,19 @@ export default class UpdateLaboratoryService {
       values,
     });
   }
+
+  async executeInBatch(laboratories: LaboratoryType.Update[]): Promise<boolean> {
+    laboratories.map(async ({ id, values }) => {
+      const laboratoryExists = !!(await this.laboratoryRepository.find(id));
+
+      if (laboratoryExists) {
+        return await this.laboratoryRepository.update({
+          id,
+          values,
+        });
+      }
+    });
+
+    return true;
+  }
 }

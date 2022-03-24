@@ -13,12 +13,24 @@ declare namespace ExamType {
     type: string;
   };
 
+  type CreateInBatch = {
+    exams: Create[];
+  };
+
   type Update = {
     id: number;
     values?: Partial<Values>;
   };
 
+  type UpdateInBatch = {
+    exams: Update[];
+  };
+
   type Delete = {
     id: number;
+  };
+
+  type DeleteInBatch = {
+    exams: number[];
   };
 }

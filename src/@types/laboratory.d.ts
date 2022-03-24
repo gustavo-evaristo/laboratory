@@ -13,12 +13,24 @@ declare namespace LaboratoryType {
     address: string;
   };
 
+  type CreateInBatch = {
+    laboratories: Create[];
+  };
+
   type Update = {
     id: number;
     values?: Partial<Values>;
   };
 
+  type UpdateInBatch = {
+    laboratories: Update[];
+  };
+
   type Delete = {
     id: number;
+  };
+
+  type DeleteInBatch = {
+    laboratories: number[];
   };
 }

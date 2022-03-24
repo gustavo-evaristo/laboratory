@@ -14,4 +14,14 @@ export default class UpdateLaboratoryController {
 
     return res.status(200).json({ message: 'Laboratory updated successfully' });
   }
+
+  async handleInBatch(req: Request, res: Response): Promise<Response> {
+    await laboratoryForm('updateInBatch', req.body);
+
+    const { laboratories }: LaboratoryType.UpdateInBatch = req.body;
+
+    await this.laboratoryService.executeInBatch(laboratories);
+
+    return res.status(200).json({ message: 'Laboratory updated successfully' });
+  }
 }

@@ -20,6 +20,28 @@ describe('Delete laboratory', () => {
     expect(async () => await laboratoryService.execute(500)).rejects.toThrow(new Error('Laboratory not exists'));
   });
 
+  it('Should be able to delete laboratory in batch', async () => {
+    const laboratoryRepository = new LaboratoryRepository();
+
+    const createLaboratoryService = new CreateLaboratoryService(laboratoryRepository);
+
+    const { id: first_id } = await createLaboratoryService.execute({
+      name: 'novo laboratorio',
+      address: 'endereco de test',
+    });
+
+    const { id: second_id } = await createLaboratoryService.execute({
+      name: 'novo laboratorio',
+      address: 'endereco de test',
+    });
+
+    const { status } = await request(app)
+      .delete('/laboratory/delete-in-batch')
+      .send({ laboratories: [first_id, second_id] });
+
+    expect(status).toBe(200);
+  });
+
   it('Should be able to delete laboratory', async () => {
     const laboratoryRepository = new LaboratoryRepository();
 

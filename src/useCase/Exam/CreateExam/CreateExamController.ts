@@ -14,4 +14,14 @@ export default class CreateExamController {
 
     return res.status(200).json(exam);
   }
+
+  async handleInBatch(req: Request, res: Response): Promise<Response> {
+    await examForm('createInBatch', req.body);
+
+    const { exams }: ExamType.CreateInBatch = req.body;
+
+    const exam = await this.examService.executeInBatch(exams);
+
+    return res.status(200).json(exam);
+  }
 }

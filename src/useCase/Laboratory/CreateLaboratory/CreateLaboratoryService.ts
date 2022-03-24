@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { LaboratoryRepository } from '@repositories';
 
 export default class CreateLaboratoryService {
@@ -10,5 +11,14 @@ export default class CreateLaboratoryService {
     });
 
     return laboratory;
+  }
+
+  async executeInBatch(laboratories: LaboratoryType.Create[]): Promise<void> {
+    laboratories.map(async ({ name, address }) => {
+      await this.laboratoryRepository.create({
+        name,
+        address,
+      });
+    });
   }
 }

@@ -13,4 +13,19 @@ export default class CreatExamService {
       values,
     });
   }
+
+  async executeInBatch(exams: ExamType.Update[]): Promise<boolean> {
+    exams.map(async ({ id, values }) => {
+      const examAlreadyExists = !!(await this.examRepository.find(id));
+
+      if (examAlreadyExists) {
+        return await this.examRepository.update({
+          id,
+          values,
+        });
+      }
+    });
+
+    return true;
+  }
 }

@@ -14,4 +14,14 @@ export default class DeleteExamsLaboratoriesController {
 
     return res.status(200).json(examsLaboratories);
   }
+
+  async handleInBatch(req: Request, res: Response): Promise<Response> {
+    await examsLaboratoriesForm('removeInBatch', req.body);
+
+    const { examsLaboratories }: ExamsLaboratoriesType.DeleteInBatch = req.body;
+
+    const examsLaboratoriesList = await this.examsLaboratoriesService.executeInBatch(examsLaboratories);
+
+    return res.status(200).json(examsLaboratoriesList);
+  }
 }

@@ -14,4 +14,14 @@ export default class CreateExamLaboratoriesController {
 
     return res.status(200).json(examsLaboratories);
   }
+
+  async handleInBatch(req: Request, res: Response): Promise<Response> {
+    await examsLaboratoriesForm('createInBatch', req.body);
+
+    const { examsLaboratories }: ExamsLaboratoriesType.CreateInBatch = req.body;
+
+    const examsLaboratoriesList = await this.examsLaboratoriesService.executeInBatch(examsLaboratories);
+
+    return res.status(200).json(examsLaboratoriesList);
+  }
 }
