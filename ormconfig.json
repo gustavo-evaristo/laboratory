@@ -1,11 +1,17 @@
 {
     "type": "postgres",
-    "host": "localhost",
+    "host": "ec2-3-225-213-67.compute-1.amazonaws.com",
     "port": "5432",
-    "username": "postgres",
-    "password": "postgres",
-    "database": "laboratory",
+    "username": "nmfqipgwbthhtb",
+    "password": "6d8b634e4922abdc608aa6aba36142b90d7e903ba8aba09d9cc4204cfeac9ea6",
+    "database": "d2n75ljk8oflev",
     "synchronize": true,
+    "ssl": true,
+    "extra": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    },
     "entities": [
       "./build/entities/**.js"
     ],
