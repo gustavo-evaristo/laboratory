@@ -8,8 +8,12 @@ export default class ExamsLaboratoriesRepository {
     this.repository = getRepository(ExamsLaboratories);
   }
 
-  async find(): Promise<ExamsLaboratoriesType.Values[]> {
-    return await this.repository.find({ where: { status: 'ACTIVE' }, relations: ['laboratory', 'exam'] });
+  async find(id: number): Promise<ExamsLaboratoriesType.Values> {
+    return await this.repository.findOne({ where: { id, status: 'ACTIVE' }, relations: ['_laboratory', '_exam'] });
+  }
+
+  async findAll(): Promise<ExamsLaboratoriesType.Values[]> {
+    return await this.repository.find({ where: { status: 'ACTIVE' }, relations: ['_laboratory', '_exam'] });
   }
 
   async create({ laboratory, exam }: ExamsLaboratoriesType.Create): Promise<ExamsLaboratoriesType.Values> {
@@ -21,10 +25,6 @@ export default class ExamsLaboratoriesRepository {
     await this.repository.save(examsLaboratories);
 
     return examsLaboratories;
-  }
-
-  async update({ id, values }: ExamsLaboratoriesType.Update): Promise<boolean> {
-    return !!(await this.repository.update(id, { ...values })).affected;
   }
 
   async delete(id: number): Promise<boolean> {

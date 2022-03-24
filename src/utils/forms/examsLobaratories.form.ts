@@ -1,17 +1,10 @@
 import * as YUP from 'yup';
 
-type EndPointController = 'create' | 'update' | 'remove';
+type EndPointController = 'create' | 'remove';
 
 const create = YUP.object().shape({
   laboratory: YUP.number().required(),
   exam: YUP.number().required(),
-});
-
-const update = YUP.object().shape({
-  id: YUP.number().required(),
-  name: YUP.string(),
-  address: YUP.string(),
-  status: YUP.string(),
 });
 
 const remove = YUP.object().shape({
@@ -20,7 +13,6 @@ const remove = YUP.object().shape({
 
 const schema = {
   create,
-  update,
   remove,
 };
 

@@ -8,7 +8,11 @@ export default class ExamRepository {
     this.repository = getRepository(Exam);
   }
 
-  async find(): Promise<ExamType.Values[]> {
+  async find(id: number): Promise<ExamType.Values> {
+    return await this.repository.findOne({ id, status: 'ACTIVE' });
+  }
+
+  async findAll(): Promise<ExamType.Values[]> {
     return await this.repository.find({ status: 'ACTIVE' });
   }
 

@@ -12,6 +12,6 @@ export default class DeleteLaboratoryController {
 
     await this.laboratoryService.execute(id);
 
-    return res.status(200).json({ message: 'ok' });
+    return res.status(200).json({ message: 'Laboratory deleted successfully' });
   }
 }

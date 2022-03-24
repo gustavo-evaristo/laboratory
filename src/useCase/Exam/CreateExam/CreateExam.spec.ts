@@ -5,12 +5,11 @@ import CreatExamService from './CreateExamService';
 
 describe('Create exam test', () => {
   it('Should not be able to register exam because fields are invalid', async () => {
-    const response = await request(app).post('/exam/create').send({
-      name: 'Exame de sangue',
-    });
+    const { status, body } = await request(app).post('/exam/create');
 
-    expect(response.status).toBe(400);
-    expect(response.body.error).toBe('Invalid fields');
+    expect(status).toBe(400);
+
+    expect(body.error).toBe('Invalid fields');
   });
 
   it('Should be able to register exam', async () => {

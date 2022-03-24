@@ -9,9 +9,11 @@ const create = YUP.object().shape({
 
 const update = YUP.object().shape({
   id: YUP.number().required(),
-  name: YUP.string(),
-  type: YUP.string(),
-  status: YUP.string(),
+  values: YUP.object({
+    name: YUP.string(),
+    type: YUP.string(),
+    status: YUP.string(),
+  }),
 });
 
 const remove = YUP.object().shape({

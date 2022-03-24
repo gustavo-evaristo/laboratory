@@ -5,6 +5,13 @@ import request from 'supertest';
 import app from '@app';
 
 describe('Delete laboratory', () => {
+  it('Should be able to delete laboratory', async () => {
+    const { status, body } = await request(app).delete('/laboratory/delete');
+
+    expect(status).toBe(400);
+    expect(body.error).toBe('Invalid fields');
+  });
+
   it('Should not be able to delete laboratory because id is invalid', async () => {
     const laboratoryRepository = new LaboratoryRepository();
 
@@ -16,14 +23,14 @@ describe('Delete laboratory', () => {
   it('Should be able to delete laboratory', async () => {
     const laboratoryRepository = new LaboratoryRepository();
 
-    const laboratoryService = new CreateLaboratoryService(laboratoryRepository);
+    const laboratoryService = new DeleteLaboratoryService(laboratoryRepository);
 
-    const { id } = await laboratoryService.execute({ name: 'novo laboratorio', address: 'endereco de test' });
+    const createLaboratoryService = new CreateLaboratoryService(laboratoryRepository);
 
-    const { status } = await request(app).delete('/laboratory/delete').send({
-      id,
-    });
+    const { id } = await createLaboratoryService.execute({ name: 'novo laboratorio', address: 'endereco de test' });
 
-    expect(status).toBe(200);
+    const laboratory = await laboratoryService.execute(id);
+
+    expect(laboratory).toBeTruthy();
   });
 });

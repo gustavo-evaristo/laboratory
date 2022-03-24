@@ -19,4 +19,8 @@ declare namespace ExamsLaboratoriesType {
     id: number;
     values: Values;
   };
+
+  type Delete = {
+    id: number;
+  };
 }

@@ -12,6 +12,6 @@ export default class UpdateLaboratoryController {
 
     await this.laboratoryService.execute({ id, values });
 
-    return res.status(200).json({ message: 'ok' });
+    return res.status(200).json({ message: 'Laboratory updated successfully' });
   }
 }

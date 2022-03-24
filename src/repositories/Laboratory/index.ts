@@ -8,7 +8,7 @@ export default class LaboratoryRepository {
     this.repository = getRepository(Laboratory);
   }
 
-  async findOne(id: number): Promise<LaboratoryType.Values> {
+  async find(id: number): Promise<LaboratoryType.Values> {
     return await this.repository.findOne({ id, status: 'ACTIVE' });
   }
 
