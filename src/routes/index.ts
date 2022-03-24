@@ -26,6 +26,7 @@ routes.delete('/laboratory/delete-in-batch', (req, res) => deleteLaboratoryContr
 
 //Exams
 routes.get('/exam/list', (req, res) => findExamController().handle(req, res));
+routes.post('/exam/search', (req, res) => findExamsLaboratoriesController().handleByName(req, res));
 routes.post('/exam/create', (req, res) => createExamController().handle(req, res));
 routes.post('/exam/create-in-batch', (req, res) => createExamController().handleInBatch(req, res));
 routes.put('/exam/update', (req, res) => updateExamController().handle(req, res));

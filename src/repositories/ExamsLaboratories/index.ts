@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Repository, Like } from 'typeorm';
 import { ExamsLaboratories } from '@entities';
 
 export default class ExamsLaboratoriesRepository {
@@ -10,6 +10,13 @@ export default class ExamsLaboratoriesRepository {
 
   async find(id: number): Promise<ExamsLaboratoriesType.Values> {
     return await this.repository.findOne({ where: { id, status: 'ACTIVE' }, relations: ['_laboratory', '_exam'] });
+  }
+
+  async findByName(name: string): Promise<ExamsLaboratoriesType.Values[]> {
+    return await this.repository.find({
+      relations: ['_laboratory', '_exam'],
+      where: { status: 'ACTIVE', _exam: { name: Like(`%${name}%`) } },
+    });
   }
 
   async findAll(): Promise<ExamsLaboratoriesType.Values[]> {

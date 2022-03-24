@@ -6,4 +6,8 @@ export default class FindExamsLaboratoriesService {
   async execute(): Promise<ExamsLaboratoriesType.Values[]> {
     return await this.examsLaboratories.findAll();
   }
+
+  async executeByName(name: string): Promise<ExamsLaboratoriesType.Values[]> {
+    return await this.examsLaboratories.findByName(name);
+  }
 }

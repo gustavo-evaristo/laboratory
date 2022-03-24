@@ -9,4 +9,12 @@ export default class FindExamLaboratoriesController {
 
     return res.status(200).json(examsLaboratories);
   }
+
+  async handleByName(req: Request, res: Response): Promise<Response> {
+    const { name } = req.body;
+
+    const examsLaboratories = await this.examsLaboratoriesService.executeByName(name);
+
+    return res.status(200).json(examsLaboratories);
+  }
 }
