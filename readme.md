@@ -7,11 +7,9 @@
 
 ## Consultar Exames
 
-```javascipt
-    {
-        METODO: GET
-        ENDPOINT: /exams/list
-    }
+```
+    METODO: GET
+    ENDPOINT: /exams/list
 ```
 
   - Consultar Exames - Metodo GET, Url: https://laboratory-api-node.herokuapp.com/exams/list
