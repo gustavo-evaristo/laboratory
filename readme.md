@@ -42,23 +42,6 @@
 
 ```
     METODO: PUT
-    ENDPOINT: /exams/create
-
-    {
-        "id": 1,
-        "values": {
-            "name": "nome do exame",
-            "type": "tipo do exame",
-            "status": "ACTIVE",
-        }
-
-    }
-```
-
-## Atualizar Exame
-
-```
-    METODO: PUT
     ENDPOINT: /exams/update
 
     {
@@ -83,6 +66,88 @@
     }
 ```
 
+# Endpointas para laboratorios
+
+## Consultar laboratorios
+
+```
+    METODO: GET
+    ENDPOINT: /laboratory/list
+```
+
+## Criar laboratorio
+
+```
+    METODO: POST
+    ENDPOINT: /laboratory/create
+
+    {
+        "name": "Nome do laboratorio",
+        "address": "Endereco do laboratorio"
+    }
+```
+
+## Atualizar laboratorio
+
+```
+    METODO: PUT
+    ENDPOINT: /laboratory/update
+
+    {
+        "id": 1,
+        "values": {
+            "name": "Nome do laboratorio",
+            "address": "Endereco do laboratorio",
+            "status": "ACTIVE"
+        }
+    }
+```
+
+## Deletar laboratorio
+
+```
+    METODO: DELETE
+    ENDPOINT: /laboratory/delete
+
+    {
+        "id": 1,
+    }
+```
+
+# Endpointas para associar um exame em um laboratorio
+
+## Listar todas as assosiações
+
+```
+    METODO: GET
+    ENDPOINT: /exams-laboratories/list
+
+```
+
+## Criar assosiação
+
+```
+    METODO: POST
+    ENDPOINT: /exams-laboratories/create
+
+    {
+        "laboratory": 1,
+        "exam": 1
+    }
+
+```
+
+## Remover assosiação
+
+```
+    METODO: POST
+    ENDPOINT: /exams-laboratories/create
+
+    {
+        "id": 1
+    }
+
+```
 
 
 
