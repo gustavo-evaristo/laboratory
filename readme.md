@@ -4,7 +4,7 @@
   https://laboratory-api-node.herokuapp.com
 
 
-# Endpointas para exame
+# Endpoints para exame
 
 
 ## Consultar Exame por nome
@@ -66,7 +66,7 @@
     }
 ```
 
-# Endpointas para laboratorios
+# Endpoints para laboratorios
 
 ## Consultar laboratorios
 
@@ -114,7 +114,7 @@
     }
 ```
 
-# Endpointas para associar um exame em um laboratorio
+# Endpoints para associar um exame em um laboratorio
 
 ## Listar todas as assosiações
 
