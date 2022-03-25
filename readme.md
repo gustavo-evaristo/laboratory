@@ -7,6 +7,9 @@
 
 - Aplicação hospedada em um Container na heroku. O deploy é feito de maneira automatica através das actions do Github.
 
+# URL da API
+  - https://laboratory-api-node.herokuapp.com
+
 # Tecnologias utilizadas
   - Express.js
   - TypeScript
