@@ -1,3 +1,8 @@
+# Acesso as rotas
+
+- Na raiz do projeto está o arquivo insomnia.json que contem todas os endpoints da alpicação.
+- O arquivo endpoints.md é um explicativo de cada request.
+
 # Tecnologias utilizadas
   - Express.js
   - TypeScript
@@ -40,9 +45,3 @@
 
   ## Dockerfile
   - Container da aplicacao
-
-
-# Acesso as rotas
-
-- Na raiz do projeto está o arquivo insomnia.json que contem todas os endpoints da alpicação.
-- O arquivo endpoints.md é um explicativo de cada request.
