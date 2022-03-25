@@ -140,8 +140,8 @@
 ## Remover assosiação
 
 ```
-    METODO: POST
-    ENDPOINT: /exams-laboratories/create
+    METODO: DELETE
+    ENDPOINT: /exams-laboratories/delete
 
     {
         "id": 1
