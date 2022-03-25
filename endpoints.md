@@ -263,16 +263,16 @@
 
 ## Deletar laboratorio em lote
 
+```
     - METODO: DELETE
     - ENDPOINT: /laboratory/delete
-```
 
     {
         "laboratories": [1, 2, 3, 4],
     }
 
-```
     - Retorna uma mensagem de sucesso na remoção dos laboratorios
+```
 
 # Endpoints para associar um exame em um laboratorio
 
@@ -283,7 +283,6 @@
     ENDPOINT: /exams-laboratories/list
 
     Retorna a lista de todos as assosiações entre exames e laboratorios
-
 ```
 
 ## Criar assosiação
