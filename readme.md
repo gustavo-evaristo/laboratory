@@ -3,6 +3,10 @@
 - Na raiz do projeto está o arquivo insomnia.json que contem todas os endpoints da alpicação.
 - O arquivo endpoints.md é um explicativo de cada request.
 
+# Deploy
+
+- Aplicação hospedada em um Container na heroku. O deploy é feito de maneira automatica através das actions do Github.
+
 # Tecnologias utilizadas
   - Express.js
   - TypeScript
@@ -12,6 +16,11 @@
   - Docker
 
 # Estrutura do projeto
+  ## /.github/worflows
+  - Configurações das actions do github.
+  - Develop: checagem do codigo e erros de sintaxe
+  - Master: checagem do codigo, erros de sintaxe e deploy do container Docker na heroku.
+
   ## /src
   - Pasta que contém todos os arquivos, classes, servicos e arquivos da aplicação.
 
